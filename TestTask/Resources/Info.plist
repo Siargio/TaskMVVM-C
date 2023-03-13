@@ -3,6 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>UIApplicationSceneManifest</key>
-	<false/>
+	<dict>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>
