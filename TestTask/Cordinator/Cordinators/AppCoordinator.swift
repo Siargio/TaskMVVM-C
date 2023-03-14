@@ -17,7 +17,7 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        print("App Coordinator Start")
+       // print("App Coordinator Start")
         goToRegisterPage()
     }
 
