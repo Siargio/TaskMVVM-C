@@ -18,7 +18,7 @@ extension UITextField {
 
         let attributes = [
             NSAttributedString.Key.foregroundColor: CommonColor.customGrayTex,
-            NSAttributedString.Key.font : UIFont(name: "Montserrat-Light", size: 13)!
+            NSAttributedString.Key.font : UIFont(name: "Montserrat-Light", size: 12)!
         ]
 
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:attributes)
