@@ -28,6 +28,8 @@
 		ECA8A02A29BF7FC100C42489 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */; };
 		ECA8A02C29BF806500C42489 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */; };
 		ECC3049029C064AE00DDCA7E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECC3048F29C064AE00DDCA7E /* Montserrat-SemiBold.ttf */; };
+		ECC3049529C0780000DDCA7E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3049429C0780000DDCA7E /* RegistrationView.swift */; };
+		ECC3049729C07AB900DDCA7E /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		ECC3048F29C064AE00DDCA7E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		ECC3049429C0780000DDCA7E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +94,13 @@
 		EC7B50B129BF9973002F387D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EC7B50B229BF9981002F387D /* Untils */,
 				EC7B50B529BF99B1002F387D /* UIColor+Ext.swift */,
 				EC7B50B729BF99D2002F387D /* UIFont+Ext.swift */,
 				EC7B50BA29BF9A0F002F387D /* UILabel+Ext.swift */,
 				EC7B50BC29BF9A29002F387D /* UIButton+Ext.swift */,
 				EC7B50BE29BFA83D002F387D /* UITextField+Ext.swift */,
 				EC7B50C029BFBEC9002F387D /* UIImage+Ext.swift */,
+				ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,11 +132,9 @@
 		ECA8A00C29BF6A8600C42489 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				EC7B50B129BF9973002F387D /* Extensions */,
-				ECA8A02F29BF81AE00C42489 /* Application */,
-				EC7B50A729BF8EC9002F387D /* Cordinator */,
-				ECA8A02829BF7FAE00C42489 /* ViewModel */,
-				ECA8A02D29BF817B00C42489 /* ViewController */,
+				ECC3049229C076D200DDCA7E /* Common */,
+				ECA8A02F29BF81AE00C42489 /* App */,
+				ECC3049329C0771D00DDCA7E /* Sources */,
 				ECA8A02E29BF819000C42489 /* Resources */,
 			);
 			path = TestTask;
@@ -147,22 +149,23 @@
 			path = Cordinators;
 			sourceTree = "<group>";
 		};
-		ECA8A02829BF7FAE00C42489 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */,
-				ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		ECA8A02D29BF817B00C42489 /* ViewController */ = {
+		ECA8A02829BF7FAE00C42489 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				ECA8A01129BF6A8600C42489 /* LoginViewController.swift */,
-				ECA8A02629BF7E4700C42489 /* RegisterViewController.swift */,
+				ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */,
 			);
-			path = ViewController;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		ECA8A02D29BF817B00C42489 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */,
+				ECA8A02629BF7E4700C42489 /* RegisterViewController.swift */,
+				ECC3049429C0780000DDCA7E /* RegistrationView.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		ECA8A02E29BF819000C42489 /* Resources */ = {
@@ -170,18 +173,45 @@
 			children = (
 				EC7B50A829BF9628002F387D /* Fonts */,
 				ECA8A01629BF6A8700C42489 /* Assets.xcassets */,
-				ECA8A01829BF6A8700C42489 /* LaunchScreen.storyboard */,
-				ECA8A01B29BF6A8700C42489 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		ECA8A02F29BF81AE00C42489 /* Application */ = {
+		ECA8A02F29BF81AE00C42489 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EC7B50A729BF8EC9002F387D /* Cordinator */,
+				ECC3049129C0766900DDCA7E /* Settings */,
 				ECA8A00D29BF6A8600C42489 /* AppDelegate.swift */,
+				ECA8A01829BF6A8700C42489 /* LaunchScreen.storyboard */,
 			);
-			path = Application;
+			path = App;
+			sourceTree = "<group>";
+		};
+		ECC3049129C0766900DDCA7E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECA8A01B29BF6A8700C42489 /* Info.plist */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		ECC3049229C076D200DDCA7E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EC7B50B229BF9981002F387D /* Untils */,
+				EC7B50B129BF9973002F387D /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ECC3049329C0771D00DDCA7E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ECA8A02829BF7FAE00C42489 /* Login */,
+				ECA8A02D29BF817B00C42489 /* Registration */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +298,9 @@
 				EC7B50BF29BFA83D002F387D /* UITextField+Ext.swift in Sources */,
 				EC7B50C129BFBEC9002F387D /* UIImage+Ext.swift in Sources */,
 				EC7B50B429BF99A1002F387D /* CommonColor.swift in Sources */,
+				ECC3049529C0780000DDCA7E /* RegistrationView.swift in Sources */,
 				ECA8A00E29BF6A8600C42489 /* AppDelegate.swift in Sources */,
+				ECC3049729C07AB900DDCA7E /* UIStackView+Ext.swift in Sources */,
 				EC7B50B629BF99B1002F387D /* UIColor+Ext.swift in Sources */,
 				ECA8A02A29BF7FC100C42489 /* LoginViewModel.swift in Sources */,
 				ECA8A02229BF6FE700C42489 /* Coordinator.swift in Sources */,
@@ -414,7 +446,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3496F3A4HL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTask/Resources/Info.plist;
+				INFOPLIST_FILE = TestTask/App/Settings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -443,7 +475,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3496F3A4HL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTask/Resources/Info.plist;
+				INFOPLIST_FILE = TestTask/App/Settings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

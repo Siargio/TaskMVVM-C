@@ -17,7 +17,7 @@ enum CommonColor {
     // #4E55D7
     static let customPurpleButton = UIColor(hex: "#4E55D7")
     // #EAEAEA
-    static let customWhiteText = UIColor(hex: "##EAEAE")
+    static let customWhiteText = UIColor(hex: "##EAEAEA")
     // #808080
     static let customGrayColorAlready = UIColor(hex: "#808080")
     // #254FE6
