@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC44D7DA29C714B00020FA52 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44D7D929C714B00020FA52 /* LoginView.swift */; };
+		EC44D7DD29C784D80020FA52 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44D7DC29C784D80020FA52 /* Validator.swift */; };
 		EC7B50AA29BF9852002F387D /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50A929BF9852002F387D /* Montserrat-Medium.ttf */; };
 		EC7B50AC29BF9876002F387D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50AB29BF9876002F387D /* Montserrat-Regular.ttf */; };
 		EC7B50AE29BF988F002F387D /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50AD29BF988F002F387D /* Montserrat-Light.ttf */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC44D7D929C714B00020FA52 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EC44D7DC29C784D80020FA52 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		EC7B50A929BF9852002F387D /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		EC7B50AB29BF9876002F387D /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		EC7B50AD29BF988F002F387D /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -71,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC44D7DB29C784BD0020FA52 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				EC44D7DC29C784D80020FA52 /* Validator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 		EC7B50A729BF8EC9002F387D /* Cordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +164,9 @@
 		ECA8A02829BF7FAE00C42489 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				ECA8A01129BF6A8600C42489 /* LoginViewController.swift */,
 				ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */,
+				ECA8A01129BF6A8600C42489 /* LoginViewController.swift */,
+				EC44D7D929C714B00020FA52 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -199,6 +212,7 @@
 		ECC3049229C076D200DDCA7E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EC44D7DB29C784BD0020FA52 /* Validator */,
 				EC7B50B229BF9981002F387D /* Untils */,
 				EC7B50B129BF9973002F387D /* Extensions */,
 			);
@@ -299,6 +313,8 @@
 				EC7B50C129BFBEC9002F387D /* UIImage+Ext.swift in Sources */,
 				EC7B50B429BF99A1002F387D /* CommonColor.swift in Sources */,
 				ECC3049529C0780000DDCA7E /* RegistrationView.swift in Sources */,
+				EC44D7DD29C784D80020FA52 /* Validator.swift in Sources */,
+				EC44D7DA29C714B00020FA52 /* LoginView.swift in Sources */,
 				ECA8A00E29BF6A8600C42489 /* AppDelegate.swift in Sources */,
 				ECC3049729C07AB900DDCA7E /* UIStackView+Ext.swift in Sources */,
 				EC7B50B629BF99B1002F387D /* UIColor+Ext.swift in Sources */,

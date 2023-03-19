@@ -13,6 +13,7 @@ extension UIImageView {
 
         let image = UIImage(named: image)
         self.image = image
+        self.contentMode = .scaleAspectFit
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

@@ -10,25 +10,20 @@ import UIKit
 class LoginViewController: UIViewController {
 
     var viewModel : LoginViewModel!
+    private let customView = LoginView()
 
-    // MARK: - UIElements
-    
     // MARK: - LifeCycle
+
+    override func loadView() {
+        super.loadView()
+        view = customView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-
-        setupHierarchy()
-        setupLayout()
+       
     }
 
     // MARK: - Setup
 
-    private func setupHierarchy() {
-
-    }
-
-    private func setupLayout() {
-
-    }
 }
