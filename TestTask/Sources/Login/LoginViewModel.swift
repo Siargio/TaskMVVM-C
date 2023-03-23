@@ -12,6 +12,6 @@ class LoginViewModel {
     weak var appCoordinator : AppCoordinator!
 
     func goToRegister(){
-        appCoordinator.goToRegisterPage()
+        appCoordinator.goToTabBarPage()
     }
 }

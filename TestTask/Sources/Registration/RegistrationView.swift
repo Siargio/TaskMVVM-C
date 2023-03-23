@@ -22,7 +22,7 @@ final class RegistrationView: UIView {
 
     private let emailTextField = UITextField(placeholder: "Email")
 
-    private let singInButton = UIButton(text: "Sing in",
+    let singInButton = UIButton(text: "Sing in",
                                         font: .montserratBold15(),
                                         tintColor: CommonColor.customWhiteText,
                                         backgroundColor: CommonColor.customPurpleButton)
@@ -31,7 +31,7 @@ final class RegistrationView: UIView {
                                            font: .montserratLight11(),
                                            textColor: CommonColor.customGrayColorAlready)
 
-    private let logInButton = UIButton(text: "Log in",
+    let logInButton = UIButton(text: "Log in",
                                        font: .montserratLight11(),
                                        tintColor: CommonColor.customPurpleLogIn,
                                        backgroundColor: .clear)
@@ -96,7 +96,7 @@ final class RegistrationView: UIView {
         super.init(frame: .zero)
         setupHierarchy()
         setupLayout()
-        backgroundColor = .white
+        backgroundColor = CommonColor.backgroundColor
     }
 
     required init?(coder: NSCoder) {

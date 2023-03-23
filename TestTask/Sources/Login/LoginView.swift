@@ -23,7 +23,7 @@ final class LoginView: UIView {
         return textField
     }()
 
-    private let loginButton = UIButton(text: "Login", font: .montserratBold15(), tintColor: CommonColor.customWhiteText, backgroundColor: CommonColor.customPurpleButton)
+    let loginButton = UIButton(text: "Login", font: .montserratBold15(), tintColor: CommonColor.customWhiteText, backgroundColor: CommonColor.customPurpleButton)
 
     private let stackViewAll: UIStackView = {
         let stackView = UIStackView()
@@ -41,7 +41,7 @@ final class LoginView: UIView {
         super.init(frame: .zero)
         setupHierarchy()
         setupLayout()
-        backgroundColor = .white
+        backgroundColor = CommonColor.backgroundColor
     }
 
     required init?(coder: NSCoder) {
@@ -62,7 +62,7 @@ final class LoginView: UIView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-              stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             stackViewAll.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
             stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
             stackViewAll.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
