@@ -16,4 +16,12 @@ extension UIImageView {
         self.contentMode = .scaleAspectFit
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+
+    func setRounded() {
+        self.layoutIfNeeded()
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+        self.layer.borderColor = UIColor.systemGray.cgColor
+        self.layer.borderWidth = 1
+    }
 }

@@ -14,4 +14,8 @@ class RegisterViewModel {
     func goToLogin() {
         appCoordinator.goToLoginPage()
     }
+
+    func gotoTabBar() {
+        appCoordinator.goToTabBarPage()
+    }
 }

@@ -8,6 +8,10 @@
 import UIKit
 
 enum CommonColor {
+    // #FAF8FE
+    static let backgroundColor = UIColor(hex: "#FAF8FE")
+    // #F5F6F7
+    static let backgroundColorSearchBar = UIColor(hex: "#F5F6F7")
     // #161826
     static let customBlack = UIColor(hex: "#161826")
     // #E8E8E8

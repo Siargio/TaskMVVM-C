@@ -17,32 +17,30 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-       // print("App Coordinator Start")
         goToRegisterPage()
     }
 
-    func goToLoginPage(){
-        // Instantiate LoginViewController
+    func goToRegisterPage() {
+        let registerViewController = RegisterViewController()
+        let registerViewModel = RegisterViewModel.init()
+        registerViewModel.appCoordinator = self
+        registerViewController.viewModel = registerViewModel
+        navigationController.pushViewController(registerViewController, animated: true)
+    }
+
+    func goToLoginPage() {
         let loginViewController = LoginViewController()
-        // Instantiate LoginViewModel
         let loginViewModel = LoginViewModel.init()
-        // Set the Coordinator to the ViewModel
         loginViewModel.appCoordinator = self
-        // Set the ViewModel to ViewController
         loginViewController.viewModel = loginViewModel
-        // Push it.
         navigationController.pushViewController(loginViewController, animated: true)
     }
 
-    func goToRegisterPage(){
-        let registerViewController = RegisterViewController()
-
-        let registerViewModel = RegisterViewModel.init()
-
-        registerViewModel.appCoordinator = self
-
-        registerViewController.viewModel = registerViewModel
-
-        navigationController.pushViewController(registerViewController, animated: true)
+    func goToTabBarPage() {
+        let mainTabBarController = MainTabBarViewController()
+        let mainTabBarViewModel = MainTabBarViewModel.init()
+        mainTabBarViewModel.appCoordinator = self
+        mainTabBarController.viewModel = mainTabBarViewModel
+        navigationController.pushViewController(mainTabBarController, animated: true)
     }
 }
