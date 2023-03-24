@@ -44,7 +44,7 @@ final class MainTabBarViewController: UITabBarController {
 
     private func setTabBarAppearance() {
         let width = tabBar.bounds.width
-        let height = tabBar.bounds.height + 55
+        let height = tabBar.bounds.height + 60
 
         let roundLayer = CAShapeLayer()
 

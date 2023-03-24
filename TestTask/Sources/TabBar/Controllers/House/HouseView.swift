@@ -11,18 +11,33 @@ final class HousesView: UIView {
     
     // MARK: - UIElements
 
-    private let searchBar: UISearchBar = {
+    let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "What are you looking for?"
         searchBar.searchBarStyle = .minimal
-        //searchBar.searchTextField.backgroundColor = CommonColor.backgroundColorSearchBar
-        searchBar.setCenteredPlaceHolder()
+        searchBar.isTranslucent = true
         searchBar.searchTextField.layer.cornerRadius = 18
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
 
+    private let locationButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "imageLocation")
+        button.setImage(image, for: .normal)
+        button.setTitle("Location", for: .normal)
+        button.setTitleColor(CommonColor.textColorSearchBarPlaceholder, for: .normal)
+        button.titleLabel?.font = UIFont.montserratRegular14()
+        button.imageEdgeInsets.left = +75
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private let collectionViewCategories: UICollectionView = {
+        let collectionView = UICollectionView()
+        return collectionView
+    }()
+    
     // MARK: - Init
 
     init() {
@@ -39,15 +54,45 @@ final class HousesView: UIView {
 
     // MARK: - Setups
 
+    func searchText(to searchBar: UISearchBar, placeHolderText: String) {
+        //searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        let searchTextField: UITextField = searchBar.value(forKey: "searchField") as? UITextField ?? UITextField()
+        
+        //searchTextField.textAlignment = NSTextAlignment.left
+        let image = UIImage(systemName: "magnifyingglass")
+        let imageView = UIImageView.init(image: image)
+        imageView.tintColor = .gray
+        searchTextField.leftView = nil
+        searchTextField.font = .montserratRegular14()
+        searchTextField.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: [NSAttributedString.Key.foregroundColor: CommonColor.textColorSearchBarPlaceholder])
+        searchTextField.addSubview(imageView)
+        imageView.frame = CGRect(x: 240, y: 7, width: 20, height: 20)
+        //searchTextField.rightView = imageView
+        searchTextField.backgroundColor = CommonColor.backgroundColorSearchBar
+        //searchTextField.rightViewMode = UITextField.ViewMode.always
+
+        let searchBarWidth = self.frame.width
+        let placeHolderWidth = searchTextField.attributedPlaceholder?.size().width
+        let offset = UIOffset(horizontal: ((searchBarWidth / 2) - (placeHolderWidth! / 0.8)), vertical: 0)
+        searchBar.setPositionAdjustment(offset, for: .search)
+    }
+
     private func setupHierarchy() {
         addSubview(searchBar)
+        addSubview(locationButton)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            locationButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            locationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            locationButton.widthAnchor.constraint(equalToConstant: 80),
+
+            searchBar.topAnchor.constraint(equalTo: locationButton.bottomAnchor),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56)
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
+
+
         ])
     }
 }
