@@ -28,6 +28,10 @@ final class HouseViewController: UIViewController {
         setupNavigationBar()
     }
 
+    override func viewDidLayoutSubviews() {
+        customView.searchText(to: customView.searchBar, placeHolderText: "What are you looking for?")
+    }
+    
     // MARK: - Setups
 
 

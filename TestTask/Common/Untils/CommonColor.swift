@@ -36,4 +36,7 @@ enum CommonColor {
     static let customColorItemTabBarPressed = UIColor(hex: "#737297")
     // #EEEFF4
     static let customColorItemCircle = UIColor(hex: "#EEEFF4")
+    // #5B5B5B
+    static let textColorSearchBarPlaceholder = UIColor(hex: "#5B5B5B")
+
 }
