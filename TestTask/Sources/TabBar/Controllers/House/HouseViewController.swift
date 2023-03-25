@@ -10,7 +10,7 @@ import UIKit
 final class HouseViewController: UIViewController {
 
     // MARK: - Property
-
+    private let modelCategories = ModelCollectionViewCategories.setups
     private let customView = HousesView()
 
     // MARK: - LifeCycle
@@ -20,7 +20,7 @@ final class HouseViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-
+        delegateCollectionView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,10 @@ final class HouseViewController: UIViewController {
     
     // MARK: - Setups
 
-
+    private func delegateCollectionView() {
+        customView.collectionViewCategories.delegate = self
+        customView.collectionViewCategories.dataSource = self
+    }
 }
 
 // MARK: - SetupsNavigationBar
@@ -84,5 +87,31 @@ extension HouseViewController {
 
         self.tabBarController?.navigationItem.rightBarButtonItems = [
             space, barButtonItem]
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        modelCategories.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCategories.identifier, for: indexPath) as? CollectionViewCategories else {
+        return UICollectionViewCell()
+        }
+        let cellData = modelCategories[indexPath.item]
+
+        cell.categoriesLabel.text = cellData.categoriesLabel
+        cell.imageInImageCircle.image = cellData.imageInCircle
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(
+            width: (collectionView.frame.size.width / 6) - 8,
+            height: (collectionView.frame.size.height))
     }
 }

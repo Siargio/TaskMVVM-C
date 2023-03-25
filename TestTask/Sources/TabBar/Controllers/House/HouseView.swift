@@ -8,7 +8,7 @@
 import UIKit
 
 final class HousesView: UIView {
-    
+
     // MARK: - UIElements
 
     let searchBar: UISearchBar = {
@@ -33,8 +33,16 @@ final class HousesView: UIView {
         return button
     }()
 
-    private let collectionViewCategories: UICollectionView = {
-        let collectionView = UICollectionView()
+    let collectionViewCategories: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        //layout.minimumInteritemSpacing = 30
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        collectionView.register(CollectionViewCategories.self, forCellWithReuseIdentifier: CollectionViewCategories.identifier)
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -80,6 +88,7 @@ final class HousesView: UIView {
     private func setupHierarchy() {
         addSubview(searchBar)
         addSubview(locationButton)
+        addSubview(collectionViewCategories)
     }
 
     private func setupLayout() {
@@ -92,6 +101,10 @@ final class HousesView: UIView {
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
 
+            collectionViewCategories.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            collectionViewCategories.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            collectionViewCategories.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            collectionViewCategories.heightAnchor.constraint(equalToConstant: 65),
 
         ])
     }
