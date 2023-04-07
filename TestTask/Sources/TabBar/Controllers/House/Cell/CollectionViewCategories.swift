@@ -11,7 +11,7 @@ final class CollectionViewCategories: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "cell"
+    static let identifier = "collectionViewCategories"
 
     // MARK: - UIElements
 

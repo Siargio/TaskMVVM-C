@@ -11,10 +11,11 @@ final class RegistrationView: UIView {
 
     // MARK: - UIElements
 
-    private let singInLabel = UILabel(textAlignment: .center,
-                                      text: "Sign in",
-                                      font: .montserratSemiBold28(),
-                                      textColor: CommonColor.customBlack)
+    private let singInLabel = UILabel(
+        textAlignment: .center,
+        text: "Sign in",
+        font: .montserratSemiBold28(),
+        textColor: CommonColor.customBlack)
 
     private let firstNameTextField = UITextField(placeholder: "First name")
 
@@ -22,69 +23,58 @@ final class RegistrationView: UIView {
 
     private let emailTextField = UITextField(placeholder: "Email")
 
-    let singInButton = UIButton(text: "Sing in",
-                                        font: .montserratBold15(),
-                                        tintColor: CommonColor.customWhiteText,
-                                        backgroundColor: CommonColor.customPurpleButton)
+    let singInButton = UIButton(
+        text: "Sing in",
+        font: .montserratBold15(),
+        tintColor: CommonColor.customWhiteText,
+        backgroundColor: CommonColor.customPurpleButton)
 
-    private let haveAccountLabel = UILabel(text: "Already have an account?",
-                                           font: .montserratLight11(),
-                                           textColor: CommonColor.customGrayColorAlready)
+    private let haveAccountLabel = UILabel(
+        text: "Already have an account?",
+        font: .montserratLight11(),
+        textColor: CommonColor.customGrayColorAlready)
 
-    let logInButton = UIButton(text: "Log in",
-                                       font: .montserratLight11(),
-                                       tintColor: CommonColor.customPurpleLogIn,
-                                       backgroundColor: .clear)
+    let logInButton = UIButton(
+        text: "   Log in",
+        font: .montserratLight11(),
+        tintColor: CommonColor.customPurpleLogIn,
+        backgroundColor: .clear,
+        alignment: .left)
 
-    private let googleButton = UIButton(text: "Sing in with Google",
-                                        font: .montserratMedium14(),
-                                        tintColor: .black,
-                                        backgroundColor: .clear)
+    private let googleButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "google")
+        button.setTitle("Sing in with Google", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .montserratMedium14()
+        button.setImage(image, for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
-    private let appleButton = UIButton(text: "Sing in with Apple",
-                                       font: .montserratMedium14(),
-                                       tintColor: .black,
-                                       backgroundColor: .clear)
-
-    private let googleImage = UIImageView(image: "google")
-
-    private let appleImage = UIImageView(image: "apple")
+    private let appleButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "apple")
+        button.setTitle("Sing in with Apple", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .montserratMedium14()
+        button.setImage(image, for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     private lazy var stackViewLabelButton: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        stackView.backgroundColor = .green
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-
-    private lazy var stackViewGoogle: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
-        stackView.alignment = .center
-        stackView.backgroundColor = .red
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-
-    private lazy var stackViewApple: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        stackView.alignment = .center
-        stackView.backgroundColor = .blue
         return stackView
     }()
 
     private lazy var stackViewAll: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
         stackView.spacing = 35
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -109,8 +99,7 @@ final class RegistrationView: UIView {
         addSubview(stackViewAll)
 
         stackViewLabelButton.addArrangedSubviews([haveAccountLabel, logInButton])
-        stackViewGoogle.addArrangedSubviews([googleImage, googleButton])
-        stackViewApple.addArrangedSubviews([appleImage, appleButton])
+
         stackViewAll.addArrangedSubviews([
             singInLabel,
             firstNameTextField,
@@ -118,17 +107,28 @@ final class RegistrationView: UIView {
             emailTextField,
             singInButton,
             stackViewLabelButton,
-            stackViewGoogle,
-            stackViewApple,
+            googleButton,
+            appleButton
         ])
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 110),
             stackViewAll.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
             stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
-            stackViewAll.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            stackViewAll.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor),
+
+            firstNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            emailTextField.heightAnchor.constraint(equalToConstant: 35),
+            lastNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            singInButton.heightAnchor.constraint(equalToConstant: 50),
+            stackViewLabelButton.heightAnchor.constraint(equalToConstant: 15)
         ])
+
+
+        stackViewAll.setCustomSpacing(90, after: singInLabel)
+        stackViewAll.setCustomSpacing(15, after: singInButton)
+        stackViewAll.setCustomSpacing(90, after: stackViewLabelButton)
     }
 }

@@ -50,7 +50,6 @@ final class PersonViewController: UIViewController {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
     }
-
 }
 
 // MARK: - UITableViewDelegate UITableViewDataSource
@@ -60,17 +59,45 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
         data.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else {
-            return UITableViewCell()
-        }
-        let cellData = data[indexPath.row]
-        cell.configuration(data: cellData)
+    func universalСell<T: UITableViewCell>(cell: T,
+                                           _ indexPath: IndexPath,
+                                           _ tableView: UITableView) -> T {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(T.self)", for: indexPath) as? T
+        else { return UITableViewCell() as? T ?? cell}
         return cell
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cellData = data[indexPath.row]
+
+        switch cellData.cellType {
+
+        case .baseCell:
+            let cell = universalСell(
+                cell: BaseCell(),
+                indexPath, tableView)
+            cell.configuration(data: cellData)
+            return cell
+
+        case .chevronCell:
+            let cell = universalСell(
+                cell: CellWithChevron(),
+                indexPath, tableView)
+            cell.configuration(data: cellData)
+            return cell
+
+        case .balanceCell:
+            let cell = universalСell(
+                cell: BalanceCell(),
+                indexPath, tableView)
+            cell.configuration(data: cellData)
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        64
+        70
     }
 }

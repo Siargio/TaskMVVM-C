@@ -15,24 +15,30 @@ final class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setTabBarAppearance()
         setupTabBarViewControllers()
+
     }
 
     func setupTabBarViewControllers() {
 
         let houseViewController = HouseViewController()
-        houseViewController.tabBarItem.image = UIImage(systemName: "house")
+        houseViewController.tabBarItem.image = UIImage(named: "house")
+        houseViewController.tabBarItem.selectedImage = UIImage(named: "houseSelect")?.withRenderingMode(.alwaysOriginal)
 
         let favoriteViewController = FavoriteViewController()
-        favoriteViewController.tabBarItem.image = UIImage(systemName: "heart")
+        favoriteViewController.tabBarItem.image = UIImage(named: "heart")
+        favoriteViewController.tabBarItem.selectedImage = UIImage(named: "heartSelect")?.withRenderingMode(.alwaysOriginal)
 
         let shoppingViewController = ShoppingViewController()
-        shoppingViewController.tabBarItem.image = UIImage(systemName: "cart")
+        shoppingViewController.tabBarItem.image = UIImage(named: "cart")
+        shoppingViewController.tabBarItem.selectedImage = UIImage(named: "cartSelect")?.withRenderingMode(.alwaysOriginal)
 
         let messageViewController = MessageViewController()
-        messageViewController.tabBarItem.image = UIImage(systemName: "message")
+        messageViewController.tabBarItem.image = UIImage(named: "message")
+        messageViewController.tabBarItem.selectedImage = UIImage(named: "messageSelect")?.withRenderingMode(.alwaysOriginal)
 
         let personViewController = PersonViewController()
-        personViewController.tabBarItem.image = UIImage(systemName: "person")
+        personViewController.tabBarItem.image = UIImage(named: "person")
+        personViewController.tabBarItem.selectedImage = UIImage(named: "personSelect")?.withRenderingMode(.alwaysOriginal)
 
         let controllers = [houseViewController,
                            favoriteViewController,
@@ -55,9 +61,9 @@ final class MainTabBarViewController: UITabBarController {
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
-
-        tabBar.tintColor = CommonColor.customColorItemTabBarPressed
-        tabBar.unselectedItemTintColor = CommonColor.customColorItemTabBar
+        
+//        tabBar.tintColor = CommonColor.customColorItemTabBarPressed
+//        tabBar.unselectedItemTintColor = CommonColor.customColorItemTabBar
 
         roundLayer.fillColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
     }

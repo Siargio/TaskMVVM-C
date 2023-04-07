@@ -11,6 +11,7 @@
 		EC44D7DD29C784D80020FA52 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44D7DC29C784D80020FA52 /* Validator.swift */; };
 		EC44D7E029C7866B0020FA52 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44D7DF29C7866B0020FA52 /* RegisterUserRequest.swift */; };
 		EC44D7E229C786810020FA52 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44D7E129C786810020FA52 /* LoginUserRequest.swift */; };
+		EC610F1F29DF045600F1CFFA /* CollectionViewBrands.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC610F1E29DF045600F1CFFA /* CollectionViewBrands.swift */; };
 		EC7B50AA29BF9852002F387D /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50A929BF9852002F387D /* Montserrat-Medium.ttf */; };
 		EC7B50AC29BF9876002F387D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50AB29BF9876002F387D /* Montserrat-Regular.ttf */; };
 		EC7B50AE29BF988F002F387D /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC7B50AD29BF988F002F387D /* Montserrat-Light.ttf */; };
@@ -31,6 +32,9 @@
 		ECA8A02729BF7E4700C42489 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8A02629BF7E4700C42489 /* RegisterViewController.swift */; };
 		ECA8A02A29BF7FC100C42489 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */; };
 		ECA8A02C29BF806500C42489 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */; };
+		ECBFF05429DEC66D001A10F6 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFF05329DEC66D001A10F6 /* HeaderCell.swift */; };
+		ECC2C89F29DF6DA900DDC9A8 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2C89E29DF6DA900DDC9A8 /* BaseCell.swift */; };
+		ECC2C8A129DF70D900DDC9A8 /* CellBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2C8A029DF70D900DDC9A8 /* CellBalance.swift */; };
 		ECC3049029C064AE00DDCA7E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECC3048F29C064AE00DDCA7E /* Montserrat-SemiBold.ttf */; };
 		ECC3049529C0780000DDCA7E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3049429C0780000DDCA7E /* RegistrationView.swift */; };
 		ECC3049729C07AB900DDCA7E /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */; };
@@ -45,12 +49,13 @@
 		ECC4B39629C85653006FFD4E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39529C85653006FFD4E /* PersonView.swift */; };
 		ECC4B39829C8572D006FFD4E /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39729C8572D006FFD4E /* MainTabBarViewModel.swift */; };
 		ECC89CD029CAFE2A001050C4 /* UIViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CCF29CAFE2A001050C4 /* UIViewCircle.swift */; };
-		ECC89CD229CB0462001050C4 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD129CB0462001050C4 /* Cell.swift */; };
+		ECC89CD229CB0462001050C4 /* CellWithChevron.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD129CB0462001050C4 /* CellWithChevron.swift */; };
 		ECC89CD529CB3843001050C4 /* ModelCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */; };
 		ECE04FBD29CED35800936230 /* CollectionViewCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FBC29CED35800936230 /* CollectionViewCategories.swift */; };
 		ECE04FC129CEE96400936230 /* ModelCollectionViewCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FC029CEE96400936230 /* ModelCollectionViewCategories.swift */; };
 		ECE04FC429CEEB6400936230 /* ModelCollectionViewLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FC329CEEB6400936230 /* ModelCollectionViewLatest.swift */; };
 		ECE04FC629CEF8FA00936230 /* CollectionViewLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FC529CEF8FA00936230 /* CollectionViewLatest.swift */; };
+		ECE6E9AE29DE05F9004D632B /* CollectionViewFlashSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6E9AD29DE05F9004D632B /* CollectionViewFlashSale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,7 @@
 		EC44D7DC29C784D80020FA52 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		EC44D7DF29C7866B0020FA52 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		EC44D7E129C786810020FA52 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
+		EC610F1E29DF045600F1CFFA /* CollectionViewBrands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBrands.swift; sourceTree = "<group>"; };
 		EC7B50A929BF9852002F387D /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		EC7B50AB29BF9876002F387D /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		EC7B50AD29BF988F002F387D /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 		ECA8A02629BF7E4700C42489 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ECA8A02929BF7FC100C42489 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECA8A02B29BF806500C42489 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		ECBFF05329DEC66D001A10F6 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		ECC2C89E29DF6DA900DDC9A8 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		ECC2C8A029DF70D900DDC9A8 /* CellBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBalance.swift; sourceTree = "<group>"; };
 		ECC3048F29C064AE00DDCA7E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		ECC3049429C0780000DDCA7E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
@@ -94,12 +103,13 @@
 		ECC4B39529C85653006FFD4E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		ECC4B39729C8572D006FFD4E /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		ECC89CCF29CAFE2A001050C4 /* UIViewCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCircle.swift; sourceTree = "<group>"; };
-		ECC89CD129CB0462001050C4 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		ECC89CD129CB0462001050C4 /* CellWithChevron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithChevron.swift; sourceTree = "<group>"; };
 		ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCellTableView.swift; sourceTree = "<group>"; };
 		ECE04FBC29CED35800936230 /* CollectionViewCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCategories.swift; sourceTree = "<group>"; };
 		ECE04FC029CEE96400936230 /* ModelCollectionViewCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollectionViewCategories.swift; sourceTree = "<group>"; };
 		ECE04FC329CEEB6400936230 /* ModelCollectionViewLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollectionViewLatest.swift; sourceTree = "<group>"; };
 		ECE04FC529CEF8FA00936230 /* CollectionViewLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLatest.swift; sourceTree = "<group>"; };
+		ECE6E9AD29DE05F9004D632B /* CollectionViewFlashSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFlashSale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +262,56 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		ECBFF05229DEC649001A10F6 /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				ECBFF05329DEC66D001A10F6 /* HeaderCell.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		ECC2C89929DF6AD700DDC9A8 /* HouseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4B38B29C85401006FFD4E /* HouseViewController.swift */,
+			);
+			path = HouseViewController;
+			sourceTree = "<group>";
+		};
+		ECC2C89A29DF6AE000DDC9A8 /* HouseView */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4B37E29C850EA006FFD4E /* HouseView.swift */,
+			);
+			path = HouseView;
+			sourceTree = "<group>";
+		};
+		ECC2C89B29DF6B0700DDC9A8 /* PersonViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4B39329C854D1006FFD4E /* PersonViewController.swift */,
+			);
+			path = PersonViewController;
+			sourceTree = "<group>";
+		};
+		ECC2C89C29DF6B0F00DDC9A8 /* PersonView */ = {
+			isa = PBXGroup;
+			children = (
+				ECC4B39529C85653006FFD4E /* PersonView.swift */,
+			);
+			path = PersonView;
+			sourceTree = "<group>";
+		};
+		ECC2C89D29DF6B1700DDC9A8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2C89E29DF6DA900DDC9A8 /* BaseCell.swift */,
+				ECC89CD129CB0462001050C4 /* CellWithChevron.swift */,
+				ECC2C8A029DF70D900DDC9A8 /* CellBalance.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		ECC3049129C0766900DDCA7E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,8 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				ECC4B38629C85389006FFD4E /* House */,
-				ECC4B38729C85396006FFD4E /* Favorite */,
 				ECC4B38829C853AD006FFD4E /* Shopping */,
+				ECC4B38729C85396006FFD4E /* Favorite */,
 				ECC4B38929C853C2006FFD4E /* Message */,
 				ECC4B38A29C853D9006FFD4E /* Person */,
 			);
@@ -306,8 +366,8 @@
 		ECC4B38629C85389006FFD4E /* House */ = {
 			isa = PBXGroup;
 			children = (
-				ECC4B38B29C85401006FFD4E /* HouseViewController.swift */,
-				ECC4B37E29C850EA006FFD4E /* HouseView.swift */,
+				ECC2C89929DF6AD700DDC9A8 /* HouseViewController */,
+				ECC2C89A29DF6AE000DDC9A8 /* HouseView */,
 				ECE04FBE29CED40800936230 /* Cell */,
 			);
 			path = House;
@@ -340,9 +400,9 @@
 		ECC4B38A29C853D9006FFD4E /* Person */ = {
 			isa = PBXGroup;
 			children = (
-				ECC4B39329C854D1006FFD4E /* PersonViewController.swift */,
-				ECC4B39529C85653006FFD4E /* PersonView.swift */,
-				ECC89CD129CB0462001050C4 /* Cell.swift */,
+				ECC2C89B29DF6B0700DDC9A8 /* PersonViewController */,
+				ECC2C89C29DF6B0F00DDC9A8 /* PersonView */,
+				ECC2C89D29DF6B1700DDC9A8 /* Cell */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -366,8 +426,11 @@
 		ECE04FBE29CED40800936230 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				ECBFF05229DEC649001A10F6 /* HeaderCell */,
 				ECE04FBC29CED35800936230 /* CollectionViewCategories.swift */,
 				ECE04FC529CEF8FA00936230 /* CollectionViewLatest.swift */,
+				ECE6E9AD29DE05F9004D632B /* CollectionViewFlashSale.swift */,
+				EC610F1E29DF045600F1CFFA /* CollectionViewBrands.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -458,9 +521,11 @@
 			files = (
 				ECE04FC129CEE96400936230 /* ModelCollectionViewCategories.swift in Sources */,
 				ECA8A02429BF701200C42489 /* AppCoordinator.swift in Sources */,
+				ECC2C8A129DF70D900DDC9A8 /* CellBalance.swift in Sources */,
 				ECC4B39029C85486006FFD4E /* Shopping.swift in Sources */,
 				ECC89CD029CAFE2A001050C4 /* UIViewCircle.swift in Sources */,
-				ECC89CD229CB0462001050C4 /* Cell.swift in Sources */,
+				ECBFF05429DEC66D001A10F6 /* HeaderCell.swift in Sources */,
+				ECC89CD229CB0462001050C4 /* CellWithChevron.swift in Sources */,
 				EC7B50BB29BF9A0F002F387D /* UILabel+Ext.swift in Sources */,
 				ECE04FBD29CED35800936230 /* CollectionViewCategories.swift in Sources */,
 				ECC4B38529C851FB006FFD4E /* MainTabBarController.swift in Sources */,
@@ -485,12 +550,15 @@
 				ECC3049729C07AB900DDCA7E /* UIStackView+Ext.swift in Sources */,
 				EC44D7E029C7866B0020FA52 /* RegisterUserRequest.swift in Sources */,
 				ECC4B38E29C85471006FFD4E /* FovoriteViewController.swift in Sources */,
+				EC610F1F29DF045600F1CFFA /* CollectionViewBrands.swift in Sources */,
 				ECE04FC629CEF8FA00936230 /* CollectionViewLatest.swift in Sources */,
+				ECE6E9AE29DE05F9004D632B /* CollectionViewFlashSale.swift in Sources */,
 				ECC4B38C29C85401006FFD4E /* HouseViewController.swift in Sources */,
 				ECC89CD529CB3843001050C4 /* ModelCellTableView.swift in Sources */,
 				EC7B50B629BF99B1002F387D /* UIColor+Ext.swift in Sources */,
 				ECA8A02A29BF7FC100C42489 /* LoginViewModel.swift in Sources */,
 				ECA8A02229BF6FE700C42489 /* Coordinator.swift in Sources */,
+				ECC2C89F29DF6DA900DDC9A8 /* BaseCell.swift in Sources */,
 				EC7B50BD29BF9A29002F387D /* UIButton+Ext.swift in Sources */,
 				ECE04FC429CEEB6400936230 /* ModelCollectionViewLatest.swift in Sources */,
 			);
