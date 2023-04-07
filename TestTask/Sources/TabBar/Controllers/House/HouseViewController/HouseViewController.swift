@@ -35,8 +35,9 @@ final class HouseViewController: UIViewController {
     // MARK: - Setups
 
     private func delegateCollectionView() {
-        customView.collectionViewCategories.delegate = self
-        customView.collectionViewCategories.dataSource = self
+        customView.collectionView.delegate = self
+        customView.collectionView.dataSource = self
+
     }
 }
 
@@ -92,26 +93,81 @@ extension HouseViewController {
 
 // MARK: - UICollectionViewDelegate
 
-extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        4
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        modelCategories.count
+        switch section {
+        case 0:
+            let section = modelCategories.count
+            return section
+        case 1:
+            return 15
+        case 2:
+            return 15
+        default:
+            return 13
+        }
     }
+
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCategories.identifier, for: indexPath) as? CollectionViewCategories else {
-        return UICollectionViewCell()
-        }
-        let cellData = modelCategories[indexPath.item]
 
-        cell.categoriesLabel.text = cellData.categoriesLabel
-        cell.imageInImageCircle.image = cellData.imageInCircle
-        return cell
+        switch indexPath.section {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCategories.identifier, for: indexPath) as? CollectionViewCategories else {
+                return UICollectionViewCell()
+            }
+            let cellData = modelCategories[indexPath.item]
+
+            cell.categoriesLabel.text = cellData.categoriesLabel
+            cell.imageInImageCircle.image = cellData.imageInCircle
+            return cell
+        case 1:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewLatest.identifier, for: indexPath) as? CollectionViewLatest else {
+                return UICollectionViewCell()
+            }
+            
+            return cell
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewFlashSale.identifier, for: indexPath) as? CollectionViewFlashSale else {
+                return UICollectionViewCell()
+            }
+
+            return cell
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewBrands.identifier, for: indexPath) as? CollectionViewBrands else {
+                return UICollectionViewCell()
+            }
+
+            return cell
+        }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(
-            width: (collectionView.frame.size.width / 6) - 8,
-            height: (collectionView.frame.size.height))
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch indexPath.section {
+        case 1:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
+                return UICollectionReusableView()
+            }
+            header.title.text = "Latest"
+            return header
+        case 2:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
+                return UICollectionReusableView()
+            }
+            header.title.text = "Flash Sale"
+            return header
+        default:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
+                return UICollectionReusableView()
+            }
+            header.title.text = "Brands"
+            return header
+        }
     }
 }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "человечек без фона.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
