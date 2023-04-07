@@ -1,17 +1,14 @@
 //
-//  Cell.swift
+//  BaseCell.swift
 //  TestTask
 //
-//  Created by Sergio on 22.03.23.
+//  Created by Sergio on 7.04.23.
 //
+
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
-
-    // MARK: - Properties
-
-    static let identifier = "TableViewCell"
+class BaseCell: UITableViewCell {
 
     //MARK: - UIElements
 
@@ -32,13 +29,6 @@ final class TableViewCell: UITableViewCell {
 
     let label = UILabel(textAlignment: .left, text: "Trade store", font: .montserratMedium14(), textColor: CommonColor.customBlack)
 
-    let imageChevron: UIImageView = {
-        let image = UIImage(named: "chevron")
-        let imageView = UIImageView(image: image)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
     // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -57,14 +47,12 @@ final class TableViewCell: UITableViewCell {
     func configuration(data: Setups?) {
         imageCreditCard.image = data?.imageInCircle
         label.text = data?.labelInfo
-        imageChevron.image = data?.chevron
     }
 
     private func setupHierarchy() {
         addSubview(imageCircle)
         imageCircle.addSubview(imageCreditCard)
         addSubview(label)
-        addSubview(imageChevron)
     }
 
     private func setupLayout() {
@@ -76,10 +64,7 @@ final class TableViewCell: UITableViewCell {
             imageCircle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
 
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: imageCircle.trailingAnchor, constant: 10),
-
-            imageChevron.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageChevron.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
+            label.leadingAnchor.constraint(equalTo: imageCircle.trailingAnchor, constant: 10)
         ])
     }
 }

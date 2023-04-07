@@ -30,7 +30,6 @@ final class LoginView: UIView {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = 35
-        stackView.backgroundColor = .green
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -62,10 +61,17 @@ final class LoginView: UIView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            stackViewAll.topAnchor.constraint(equalTo: topAnchor, constant: 155),
             stackViewAll.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
             stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
-            stackViewAll.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            stackViewAll.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+
+            firstNameTexField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.04),
+            passwordTextField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.04),
+            loginButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.06)
         ])
+
+        stackViewAll.setCustomSpacing(75, after: welcomeLabel)
+        stackViewAll.setCustomSpacing(99, after: passwordTextField)
     }
 }

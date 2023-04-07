@@ -1,17 +1,17 @@
 //
-//  CollectionViewLatest.swift
+//  CollectionViewBrands.swift
 //  TestTask
 //
-//  Created by Sergio on 25.03.23.
+//  Created by Sergio on 6.04.23.
 //
 
 import UIKit
 
-final class CollectionViewLatest: UICollectionViewCell {
+final class CollectionViewBrands: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewLatest"
+    static let identifier = "collectionViewBrands"
 
     // MARK: - UIElements
 
@@ -118,3 +118,4 @@ final class CollectionViewLatest: UICollectionViewCell {
         ])
     }
 }
+

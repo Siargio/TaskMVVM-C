@@ -13,20 +13,40 @@ extension UIFont {
         return UIFont.init(name: "Montserrat-Bold", size: 22)
     }
 
-    static func montserratSemiBold28() -> UIFont? {
-        return UIFont.init(name: "Montserrat-SemiBold", size: 28)
-    }
-
-    static func montserratSemiBold15() -> UIFont? {
-        return UIFont.init(name: "Montserrat-SemiBold", size: 15)
-    }
-
     static func montserratBold15() -> UIFont? {
         return UIFont.init(name: "Montserrat-Bold", size: 15)
     }
 
     static func montserratBold16() -> UIFont? {
         return UIFont.init(name: "Montserrat-Bold", size: 16)
+    }
+
+    static func montserratSemiBold28() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 28)
+    }
+
+    static func montserratSemiBold17() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 17)
+    }
+
+    static func montserratSemiBold15() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 15)
+    }
+
+    static func montserratSemiBold14() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 14)
+    }
+
+    static func montserratSemiBold12() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 12)
+    }
+
+    static func montserratSemiBold10() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 10)
+    }
+
+    static func montserratSemiBold9() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 9)
     }
 
     static func montserratMedium28() -> UIFont? {
@@ -47,5 +67,9 @@ extension UIFont {
 
     static func montserratLight9() -> UIFont? {
         return UIFont.init(name: "Montserrat-Light", size: 9)
+    }
+
+    static func montserratLight6() -> UIFont? {
+        return UIFont.init(name: "Montserrat-Light", size: 6)
     }
 }

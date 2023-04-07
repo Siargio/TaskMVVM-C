@@ -39,7 +39,9 @@ final class PersonView: UIView {
 
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        tableView.register(BaseCell.self, forCellReuseIdentifier: "BaseCell")
+        tableView.register(CellWithChevron.self, forCellReuseIdentifier: "CellWithChevron")
+        tableView.register(BalanceCell.self, forCellReuseIdentifier: "BalanceCell")
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false

@@ -1,49 +1,71 @@
 //
-//  CollectionViewLatest.swift
+//  CollectionViewFlashSale.swift
 //  TestTask
 //
-//  Created by Sergio on 25.03.23.
+//  Created by Sergio on 5.04.23.
 //
 
 import UIKit
 
-final class CollectionViewLatest: UICollectionViewCell {
+final class CollectionViewFlashSale: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewLatest"
+    static let identifier = "collectionViewFlashSale"
 
     // MARK: - UIElements
 
     let backgroundCellImage: UIImageView = {
-        let image = UIImage(named: "backgroundCell")
+        let image = UIImage(named: "backgroundCell2")
         let imageView = UIImageView(image: image)
-
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let backgroundCategoriesImage: UIImageView = {
-        let image = UIImage(named: "backgroundCategories")
+        let image = UIImage(named: "backgroundCategoriesBig")
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-        let categoriesLabel: UILabel = {
+    private let backgroundSaleImage: UIImageView = {
+        let image = UIImage(named: "saleBackground")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    private let humanIkonImage: UIImageView = {
+        let image = UIImage(named: "humanIkon")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    let categoriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phones"
+        label.text = "Kids"
         label.textColor = .black
-        label.font = .montserratLight6()
+        label.font = .montserratLight9()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    let saleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "30% off"
+        label.textColor = .white
+        label.font = .montserratSemiBold10()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let productLabel: UILabel = {
         let label = UILabel()
-        label.text = "Samsung S10"
+        label.text = "New balance sneakers"
         label.textColor = .white
-        label.font = .montserratSemiBold10()
+        label.font = .montserratSemiBold14()
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,16 +73,23 @@ final class CollectionViewLatest: UICollectionViewCell {
 
     let costLabel: UILabel = {
         let label = UILabel()
-        label.text = "$ 180,000"
+        label.text = "$ 33,00"
         label.textColor = .white
-        label.font = .montserratSemiBold9()
+        label.font = .montserratSemiBold12()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let addProductButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "circlePlus"), for: .normal)
+        button.setImage(UIImage(named: "circlePlusBig"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    let addLikeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "circleHeart"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -74,7 +103,6 @@ final class CollectionViewLatest: UICollectionViewCell {
         backgroundColor = .clear
         layer.cornerRadius = 15
         clipsToBounds = true
-
     }
 
     required init?(coder: NSCoder) {
@@ -90,7 +118,10 @@ final class CollectionViewLatest: UICollectionViewCell {
         addSubview(costLabel)
         addSubview(productLabel)
         addSubview(addProductButton)
-
+        addSubview(addLikeButton)
+        addSubview(backgroundSaleImage)
+        backgroundSaleImage.addSubview(saleLabel)
+        addSubview(humanIkonImage)
     }
 
     private func setLayout() {
@@ -106,15 +137,27 @@ final class CollectionViewLatest: UICollectionViewCell {
             categoriesLabel.centerYAnchor.constraint(equalTo: backgroundCategoriesImage.centerYAnchor),
             categoriesLabel.centerXAnchor.constraint(equalTo: backgroundCategoriesImage.centerXAnchor),
 
-            costLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            costLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             costLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
 
             productLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            productLabel.bottomAnchor.constraint(equalTo: costLabel.topAnchor, constant: -15),
-            productLabel.widthAnchor.constraint(equalToConstant: 70),
+            productLabel.bottomAnchor.constraint(equalTo: costLabel.topAnchor, constant: -20),
+            productLabel.widthAnchor.constraint(equalToConstant: 100),
 
             backgroundCategoriesImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            backgroundCategoriesImage.bottomAnchor.constraint(equalTo: productLabel.topAnchor, constant: -5),
+            backgroundCategoriesImage.bottomAnchor.constraint(equalTo: productLabel.topAnchor, constant: -10),
+
+            addLikeButton.trailingAnchor.constraint(equalTo: addProductButton.leadingAnchor, constant: -5),
+            addLikeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -9),
+
+            saleLabel.centerXAnchor.constraint(equalTo: backgroundSaleImage.centerXAnchor),
+            saleLabel.centerYAnchor.constraint(equalTo: backgroundSaleImage.centerYAnchor),
+
+            backgroundSaleImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            backgroundSaleImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+
+            humanIkonImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            humanIkonImage.topAnchor.constraint(equalTo: topAnchor, constant: 8)
         ])
     }
 }
