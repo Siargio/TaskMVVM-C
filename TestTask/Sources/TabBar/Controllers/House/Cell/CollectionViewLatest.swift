@@ -16,9 +16,7 @@ final class CollectionViewLatest: UICollectionViewCell {
     // MARK: - UIElements
 
     let backgroundCellImage: UIImageView = {
-        let image = UIImage(named: "backgroundCell")
-        let imageView = UIImageView(image: image)
-
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -30,9 +28,8 @@ final class CollectionViewLatest: UICollectionViewCell {
         return imageView
     }()
 
-        let categoriesLabel: UILabel = {
+    let categoriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phones"
         label.textColor = .black
         label.font = .montserratLight6()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,17 +38,15 @@ final class CollectionViewLatest: UICollectionViewCell {
 
     let productLabel: UILabel = {
         let label = UILabel()
-        label.text = "Samsung S10"
         label.textColor = .white
-        label.font = .montserratSemiBold10()
+        label.font = .montserratSemiBold8()
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    let costLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "$ 180,000"
         label.textColor = .white
         label.font = .montserratSemiBold9()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +69,6 @@ final class CollectionViewLatest: UICollectionViewCell {
         backgroundColor = .clear
         layer.cornerRadius = 15
         clipsToBounds = true
-
     }
 
     required init?(coder: NSCoder) {
@@ -87,10 +81,9 @@ final class CollectionViewLatest: UICollectionViewCell {
         addSubview(backgroundCellImage)
         addSubview(backgroundCategoriesImage)
         backgroundCategoriesImage.addSubview(categoriesLabel)
-        addSubview(costLabel)
+        addSubview(priceLabel)
         addSubview(productLabel)
         addSubview(addProductButton)
-
     }
 
     private func setLayout() {
@@ -106,15 +99,24 @@ final class CollectionViewLatest: UICollectionViewCell {
             categoriesLabel.centerYAnchor.constraint(equalTo: backgroundCategoriesImage.centerYAnchor),
             categoriesLabel.centerXAnchor.constraint(equalTo: backgroundCategoriesImage.centerXAnchor),
 
-            costLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
-            costLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
 
             productLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            productLabel.bottomAnchor.constraint(equalTo: costLabel.topAnchor, constant: -15),
-            productLabel.widthAnchor.constraint(equalToConstant: 70),
+            productLabel.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -5),
+            productLabel.widthAnchor.constraint(equalToConstant: 80),
+            productLabel.heightAnchor.constraint(equalToConstant: 25),
 
             backgroundCategoriesImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            backgroundCategoriesImage.bottomAnchor.constraint(equalTo: productLabel.topAnchor, constant: -5),
+            backgroundCategoriesImage.bottomAnchor.constraint(equalTo: productLabel.topAnchor),
         ])
+    }
+
+    func configure(model: Latest) {
+        categoriesLabel.text = model.category
+        productLabel.text = model.name
+        priceLabel.text = "$ \(model.price ?? 0)"
+
+        NetworkDataFetch.shared.fetchImageLatest(model: model, imageView: backgroundCellImage)
     }
 }

@@ -15,17 +15,18 @@ class HeaderCell: UICollectionReusableView {
 
     // MARK: - UI elements
 
-    lazy var title: UILabel = {
+    lazy var categoriesLabel: UILabel = {
         let title = UILabel()
         title.font = .montserratSemiBold17()
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
 
-    lazy var titlee: UILabel = {
+    lazy var titleRightLabel: UILabel = {
         let title = UILabel()
         title.text = "View all"
         title.font = .montserratLight11()
+        title.textColor = .black
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
@@ -48,23 +49,17 @@ class HeaderCell: UICollectionReusableView {
     // MARK: - Setup
 
     private func setupHierarchy() {
-        addSubview(title)
-        addSubview(titlee)
+        addSubview(categoriesLabel)
+        addSubview(titleRightLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.bottomAnchor.constraint(equalTo: bottomAnchor),
+            categoriesLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            categoriesLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            titlee.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titlee.bottomAnchor.constraint(equalTo: bottomAnchor)
+            titleRightLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleRightLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        title.text = nil
-        titlee.text = nil
     }
 }

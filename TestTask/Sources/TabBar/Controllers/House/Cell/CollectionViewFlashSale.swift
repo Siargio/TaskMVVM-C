@@ -16,8 +16,8 @@ final class CollectionViewFlashSale: UICollectionViewCell {
     // MARK: - UIElements
 
     let backgroundCellImage: UIImageView = {
-        let image = UIImage(named: "backgroundCell2")
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -45,16 +45,14 @@ final class CollectionViewFlashSale: UICollectionViewCell {
 
     let categoriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Kids"
         label.textColor = .black
         label.font = .montserratLight9()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    let saleLabel: UILabel = {
+    let discount: UILabel = {
         let label = UILabel()
-        label.text = "30% off"
         label.textColor = .white
         label.font = .montserratSemiBold10()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +61,6 @@ final class CollectionViewFlashSale: UICollectionViewCell {
 
     let productLabel: UILabel = {
         let label = UILabel()
-        label.text = "New balance sneakers"
         label.textColor = .white
         label.font = .montserratSemiBold14()
         label.numberOfLines = 2
@@ -71,9 +68,8 @@ final class CollectionViewFlashSale: UICollectionViewCell {
         return label
     }()
 
-    let costLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "$ 33,00"
         label.textColor = .white
         label.font = .montserratSemiBold12()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +101,11 @@ final class CollectionViewFlashSale: UICollectionViewCell {
         clipsToBounds = true
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundCellImage.frame = contentView.bounds
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -115,21 +116,21 @@ final class CollectionViewFlashSale: UICollectionViewCell {
         addSubview(backgroundCellImage)
         addSubview(backgroundCategoriesImage)
         backgroundCategoriesImage.addSubview(categoriesLabel)
-        addSubview(costLabel)
+        addSubview(priceLabel)
         addSubview(productLabel)
         addSubview(addProductButton)
         addSubview(addLikeButton)
         addSubview(backgroundSaleImage)
-        backgroundSaleImage.addSubview(saleLabel)
+        backgroundSaleImage.addSubview(discount)
         addSubview(humanIkonImage)
     }
 
     private func setLayout() {
         NSLayoutConstraint.activate([
-            backgroundCellImage.topAnchor.constraint(equalTo: topAnchor),
-            backgroundCellImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundCellImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundCellImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            backgroundCellImage.topAnchor.constraint(equalTo: topAnchor),
+//            backgroundCellImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            backgroundCellImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            backgroundCellImage.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             addProductButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             addProductButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
@@ -137,11 +138,11 @@ final class CollectionViewFlashSale: UICollectionViewCell {
             categoriesLabel.centerYAnchor.constraint(equalTo: backgroundCategoriesImage.centerYAnchor),
             categoriesLabel.centerXAnchor.constraint(equalTo: backgroundCategoriesImage.centerXAnchor),
 
-            costLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
-            costLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
 
             productLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            productLabel.bottomAnchor.constraint(equalTo: costLabel.topAnchor, constant: -20),
+            productLabel.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -20),
             productLabel.widthAnchor.constraint(equalToConstant: 100),
 
             backgroundCategoriesImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -150,8 +151,8 @@ final class CollectionViewFlashSale: UICollectionViewCell {
             addLikeButton.trailingAnchor.constraint(equalTo: addProductButton.leadingAnchor, constant: -5),
             addLikeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -9),
 
-            saleLabel.centerXAnchor.constraint(equalTo: backgroundSaleImage.centerXAnchor),
-            saleLabel.centerYAnchor.constraint(equalTo: backgroundSaleImage.centerYAnchor),
+            discount.centerXAnchor.constraint(equalTo: backgroundSaleImage.centerXAnchor),
+            discount.centerYAnchor.constraint(equalTo: backgroundSaleImage.centerYAnchor),
 
             backgroundSaleImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             backgroundSaleImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -159,5 +160,14 @@ final class CollectionViewFlashSale: UICollectionViewCell {
             humanIkonImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             humanIkonImage.topAnchor.constraint(equalTo: topAnchor, constant: 8)
         ])
+    }
+
+    func configure(model: FlashSale) {
+        categoriesLabel.text = model.category
+        productLabel.text = model.name
+        priceLabel.text = "$ \(model.price ?? 0)"
+        discount.text = "\(model.discount ?? 0)% off"
+
+        NetworkDataFetch.shared.fetchImageFlashSale(model: model, imageView: backgroundCellImage)
     }
 }
