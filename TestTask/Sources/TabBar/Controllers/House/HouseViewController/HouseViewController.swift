@@ -11,6 +11,8 @@ final class HouseViewController: UIViewController {
 
     // MARK: - Property
     private let modelCategories = ModelCollectionViewCategories.setups
+    private var modelLatest = [Latest]()
+    private var modelFlashSale = [FlashSale]()
     private let customView = HousesView()
 
     // MARK: - LifeCycle
@@ -21,6 +23,8 @@ final class HouseViewController: UIViewController {
     
     override func viewDidLoad() {
         delegateCollectionView()
+        fetchLatest()
+        fetchFlashScale()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +41,40 @@ final class HouseViewController: UIViewController {
     private func delegateCollectionView() {
         customView.collectionView.delegate = self
         customView.collectionView.dataSource = self
+    }
 
+    func fetchLatest() {
+
+        let url = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
+
+        NetworkDataFetch.shared.fetchAlbum(urlString: url) { modelLatest, error in
+            if error == nil {
+                guard let modelLatest = modelLatest else { return }
+                self.modelLatest = modelLatest.latest
+                DispatchQueue.main.async {
+                    self.customView.collectionView.reloadData()
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+
+    func fetchFlashScale() {
+
+        let url = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
+
+        NetworkDataFetch.shared.fetchFlashScale(urlString: url) { modelFlashSale, error in
+            if error == nil {
+                guard let modelFlashSale = modelFlashSale else { return }
+                self.modelFlashSale = modelFlashSale.flashSale
+                DispatchQueue.main.async {
+                    self.customView.collectionView.reloadData()
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
     }
 }
 
@@ -105,9 +142,11 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let section = modelCategories.count
             return section
         case 1:
-            return 15
+            let modelLatest = modelLatest.count
+            return modelLatest
         case 2:
-            return 15
+            let modelFlashSale = modelFlashSale.count
+            return modelFlashSale
         default:
             return 13
         }
@@ -126,23 +165,27 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.categoriesLabel.text = cellData.categoriesLabel
             cell.imageInImageCircle.image = cellData.imageInCircle
             return cell
+
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewLatest.identifier, for: indexPath) as? CollectionViewLatest else {
                 return UICollectionViewCell()
             }
-            
+            let cellData = modelLatest[indexPath.item]
+            cell.configure(model: cellData)
             return cell
+
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewFlashSale.identifier, for: indexPath) as? CollectionViewFlashSale else {
                 return UICollectionViewCell()
             }
-
+            let cellData = modelFlashSale[indexPath.item]
+            cell.configure(model: cellData)
             return cell
+
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewBrands.identifier, for: indexPath) as? CollectionViewBrands else {
                 return UICollectionViewCell()
             }
-
             return cell
         }
     }
@@ -154,19 +197,21 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.title.text = "Latest"
+            header.categoriesLabel.text = "Latest"
             return header
+
         case 2:
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.title.text = "Flash Sale"
+            header.categoriesLabel.text = "Flash Sale"
             return header
+            
         default:
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.title.text = "Brands"
+            header.categoriesLabel.text = "Brands"
             return header
         }
     }

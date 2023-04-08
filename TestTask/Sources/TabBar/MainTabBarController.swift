@@ -15,7 +15,6 @@ final class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setTabBarAppearance()
         setupTabBarViewControllers()
-
     }
 
     func setupTabBarViewControllers() {
@@ -62,9 +61,6 @@ final class MainTabBarViewController: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-//        tabBar.tintColor = CommonColor.customColorItemTabBarPressed
-//        tabBar.unselectedItemTintColor = CommonColor.customColorItemTabBar
-
         roundLayer.fillColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
     }
 }
