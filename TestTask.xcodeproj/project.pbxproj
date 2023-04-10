@@ -53,6 +53,7 @@
 		ECC89CD529CB3843001050C4 /* ModelCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */; };
 		ECCA493129E1C2C100FDE892 /* NetworkDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA493029E1C2C100FDE892 /* NetworkDataFetch.swift */; };
 		ECCA493429E1CD3B00FDE892 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA493329E1CD3B00FDE892 /* UserDefaultsManager.swift */; };
+		ECCA493629E1E6E700FDE892 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA493529E1E6E700FDE892 /* UIViewController+Ext.swift */; };
 		ECE04FBD29CED35800936230 /* CollectionViewCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FBC29CED35800936230 /* CollectionViewCategories.swift */; };
 		ECE04FC129CEE96400936230 /* ModelCollectionViewCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FC029CEE96400936230 /* ModelCollectionViewCategories.swift */; };
 		ECE04FC429CEEB6400936230 /* ModelLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04FC329CEEB6400936230 /* ModelLatest.swift */; };
@@ -109,6 +110,7 @@
 		ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCellTableView.swift; sourceTree = "<group>"; };
 		ECCA493029E1C2C100FDE892 /* NetworkDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetch.swift; sourceTree = "<group>"; };
 		ECCA493329E1CD3B00FDE892 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		ECCA493529E1E6E700FDE892 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		ECE04FBC29CED35800936230 /* CollectionViewCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCategories.swift; sourceTree = "<group>"; };
 		ECE04FC029CEE96400936230 /* ModelCollectionViewCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollectionViewCategories.swift; sourceTree = "<group>"; };
 		ECE04FC329CEEB6400936230 /* ModelLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLatest.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				EC7B50C029BFBEC9002F387D /* UIImage+Ext.swift */,
 				ECC3049629C07AB900DDCA7E /* UIStackView+Ext.swift */,
 				ECC4231129CC8F47008A1314 /* UISearchBar+Ext.swift */,
+				ECCA493529E1E6E700FDE892 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				ECA8A02C29BF806500C42489 /* RegisterViewModel.swift in Sources */,
 				ECA8A01229BF6A8600C42489 /* LoginViewController.swift in Sources */,
 				EC7B50B829BF99D2002F387D /* UIFont+Ext.swift in Sources */,
+				ECCA493629E1E6E700FDE892 /* UIViewController+Ext.swift in Sources */,
 				ECC4B39429C854D1006FFD4E /* PersonViewController.swift in Sources */,
 				ECC4B39629C85653006FFD4E /* PersonView.swift in Sources */,
 				EC7B50BF29BFA83D002F387D /* UITextField+Ext.swift in Sources */,

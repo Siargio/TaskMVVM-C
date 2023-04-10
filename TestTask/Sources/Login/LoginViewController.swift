@@ -39,10 +39,35 @@ class LoginViewController: UIViewController {
     // MARK: - Setups
 
     private func creatingActionButton() {
-        customView.loginButton.addTarget(self, action: #selector(goTOHouseScreen), for: .touchUpInside)
+        customView.loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
     }
 
-    @objc func goTOHouseScreen() {
-        viewModel.goToRegister()
+    @objc func tapLoginButton() {
+
+        let email = customView.emailTexField.text ?? ""
+        let password = customView.passwordTextField.text ?? ""
+        let user = findUserDataBase(email: email)
+
+        if user == nil {
+            alertOk(title: "Пользователь не найден.", message: "")
+        } else if user?.password == password {
+            UserDefaults.standard.set(true, forKey: "userLogged")
+            viewModel.goToRegister()
+            guard let activeUser = user else { return }
+            DataBase.shard.saveActiveUser(user: activeUser)
+        } else {
+            alertOk(title: "Не верный пароль", message: "")
+        }
+    }
+
+    private func findUserDataBase(email: String) -> RegisterUserModel? {
+        let dataBase = DataBase.shard.users
+
+        for user in dataBase {
+            if user.email == email {
+                return user
+            }
+        }
+        return nil
     }
 }

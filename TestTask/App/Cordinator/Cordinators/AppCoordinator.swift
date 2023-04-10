@@ -20,6 +20,10 @@ class AppCoordinator: Coordinator {
         goToRegisterPage()
     }
 
+    func startUser() {
+        goToTabBarPage()
+    }
+
     func goToRegisterPage() {
         let registerViewController = RegisterViewController()
         let registerViewModel = RegisterViewModel.init()
