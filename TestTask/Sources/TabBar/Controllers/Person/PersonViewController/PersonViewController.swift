@@ -8,11 +8,11 @@
 import UIKit
 
 final class PersonViewController: UIViewController {
-
+    let appa = AppDelegate()
     // MARK: - Property
     
     private let customView = PersonView()
-    private let data = Setups.setups
+    private let data = SetupSections.setupSections
 
     // MARK: - LifeCycle
 
@@ -50,13 +50,23 @@ final class PersonViewController: UIViewController {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
     }
+
+    private func didTapLogout() {
+        //UserDefaults.standard.removeObject(forKey: "userLogged")
+        appa.check()
+    }
 }
 
 // MARK: - UITableViewDelegate UITableViewDataSource
 
 extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        data[section].setupsItem.count
     }
 
     func universalСell<T: UITableViewCell>(cell: T,
@@ -69,7 +79,7 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cellData = data[indexPath.row]
+        let cellData = data[indexPath.section].setupsItem[indexPath.item]
 
         switch cellData.cellType {
 
@@ -94,6 +104,14 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configuration(data: cellData)
             cell.selectionStyle = .none
             return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if data[indexPath.section].sectionsNumber == 1 {
+            UserDefaults.standard.removeObject(forKey: "userLogged")
+            didTapLogout()
         }
     }
 

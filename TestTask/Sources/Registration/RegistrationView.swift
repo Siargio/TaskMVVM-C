@@ -17,11 +17,17 @@ final class RegistrationView: UIView {
         font: .montserratSemiBold28(),
         textColor: CommonColor.customBlack)
 
-    private let firstNameTextField = UITextField(placeholder: "First name")
+    let firstNameTextField = UITextField(placeholder: "First name")
 
-    private let lastNameTextField = UITextField(placeholder: "Last name")
+    let passwordTextField: UITextField = {
+        let textField = UITextField(placeholder: "Password")
+        textField.setLeftPaddingPoints(10)
+        textField.isSecureTextEntry = true
+        textField.enablePasswordToggle()
+        return textField
+    }()
 
-    private let emailTextField = UITextField(placeholder: "Email")
+    let emailTextField = UITextField(placeholder: "Email")
 
     let singInButton = UIButton(
         text: "Sing in",
@@ -103,7 +109,7 @@ final class RegistrationView: UIView {
         stackViewAll.addArrangedSubviews([
             singInLabel,
             firstNameTextField,
-            lastNameTextField,
+            passwordTextField,
             emailTextField,
             singInButton,
             stackViewLabelButton,
@@ -121,11 +127,10 @@ final class RegistrationView: UIView {
 
             firstNameTextField.heightAnchor.constraint(equalToConstant: 35),
             emailTextField.heightAnchor.constraint(equalToConstant: 35),
-            lastNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 35),
             singInButton.heightAnchor.constraint(equalToConstant: 50),
             stackViewLabelButton.heightAnchor.constraint(equalToConstant: 15)
         ])
-
 
         stackViewAll.setCustomSpacing(90, after: singInLabel)
         stackViewAll.setCustomSpacing(15, after: singInButton)

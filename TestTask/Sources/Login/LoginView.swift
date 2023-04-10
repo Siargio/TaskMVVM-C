@@ -13,9 +13,9 @@ final class LoginView: UIView {
 
     private let welcomeLabel = UILabel(textAlignment: .center, text: "Welcome back", font: .montserratSemiBold28(), textColor: CommonColor.customBlack)
 
-    private let firstNameTexField = UITextField(placeholder: "First name")
+    let emailTexField = UITextField(placeholder: "Email")
 
-    private let passwordTextField: UITextField = {
+    let passwordTextField: UITextField = {
         let textField = UITextField(placeholder: "Password")
         textField.setLeftPaddingPoints(10)
         textField.isSecureTextEntry = true
@@ -53,7 +53,7 @@ final class LoginView: UIView {
         addSubview(stackViewAll)
         stackViewAll.addArrangedSubviews([
             welcomeLabel,
-            firstNameTexField,
+            emailTexField,
             passwordTextField,
             loginButton
         ])
@@ -66,7 +66,7 @@ final class LoginView: UIView {
             stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
             stackViewAll.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
 
-            firstNameTexField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.04),
+            emailTexField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.04),
             passwordTextField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.04),
             loginButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.06)
         ])
