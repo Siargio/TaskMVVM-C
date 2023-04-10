@@ -24,7 +24,7 @@ class DataBase {
             if let data = defaults.value(forKey: userKey) as? Data { //запрашиваем по ключу дату и проверям
                 return try! PropertyListDecoder().decode([RegisterUserModel].self, from: data) // декодируем в модель User
             } else {
-                return [RegisterUserModel]() //если не получилось возвращаем пустой User
+                return [RegisterUserModel]()
             }
         }
 
@@ -42,10 +42,10 @@ class DataBase {
 
     var activeUser: RegisterUserModel? {
         get {
-            if let data = defaults.value(forKey: activeUserKey) as? Data { //запрашиваем по ключу дату и проверям
-                return try! PropertyListDecoder().decode(RegisterUserModel.self, from: data) // декодируем в модель User
+            if let data = defaults.value(forKey: activeUserKey) as? Data { 
+                return try! PropertyListDecoder().decode(RegisterUserModel.self, from: data)
             } else {
-                return nil //если не получилось возвращаем пустой User
+                return nil
             }
         }
         set {

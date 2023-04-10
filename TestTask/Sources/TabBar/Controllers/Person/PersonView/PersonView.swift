@@ -11,15 +11,14 @@ final class PersonView: UIView {
 
     // MARK: - UIElements
 
-    let profilImage: UIImageView = {
-        let image = UIImage(named: "heart")
-        let imageView = UIImageView()
-        imageView.backgroundColor = .red
+    let profileImage: UIImageView = {
+        let image = UIImage(named: "personPhotoProfile")
+        let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    private let changePhotoButton = UIButton(
+    let changePhotoButton = UIButton(
         text: "Change photo",
         font: .montserratLight9(),
         tintColor: CommonColor.customGrayTex,
@@ -31,7 +30,7 @@ final class PersonView: UIView {
         font: .montserratBold16(),
         textColor: CommonColor.customBlack)
 
-    private let uploadtItemButton = UIButton(
+    private let uploadItemButton = UIButton(
         text: "Upload item",
         font: .montserratSemiBold15(),
         tintColor: CommonColor.customWhiteText,
@@ -64,35 +63,35 @@ final class PersonView: UIView {
     // MARK: - Setups
 
     private func setupHierarchy() {
-        addSubview(profilImage)
+        addSubview(profileImage)
         addSubview(changePhotoButton)
         addSubview(nameLabel)
-        addSubview(uploadtItemButton)
+        addSubview(uploadItemButton)
         addSubview(tableView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            profilImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            profilImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            profilImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
-            profilImage.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
+            profileImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            profileImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
+            profileImage.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
 
-            changePhotoButton.topAnchor.constraint(equalTo: profilImage.bottomAnchor),
+            changePhotoButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor),
             changePhotoButton.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: changePhotoButton.bottomAnchor, constant: 10),
 
-            uploadtItemButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            uploadtItemButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40),
-            uploadtItemButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
-            uploadtItemButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
-            uploadtItemButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
+            uploadItemButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            uploadItemButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40),
+            uploadItemButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
+            uploadItemButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
+            uploadItemButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
 
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: uploadtItemButton.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: uploadItemButton.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
