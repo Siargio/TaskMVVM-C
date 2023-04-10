@@ -8,9 +8,9 @@
 import UIKit
 
 final class PersonViewController: UIViewController {
-    let appa = AppDelegate()
     // MARK: - Property
     
+    let appDelegate = AppDelegate()
     private let customView = PersonView()
     private let data = SetupSections.setupSections
 
@@ -23,6 +23,7 @@ final class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate()
+        creatingActionButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +33,7 @@ final class PersonViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        customView.profilImage.setRounded()
+        customView.profileImage.setRounded()
     }
 
     override func viewDidLayoutSubviews() {
@@ -46,6 +47,10 @@ final class PersonViewController: UIViewController {
         self.tabBarController?.navigationItem.title = "Profile"
     }
 
+    private func creatingActionButton() {
+        customView.changePhotoButton.addTarget(self, action: #selector(tapChangeButton), for: .touchUpInside)
+    }
+    
     func delegate() {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
@@ -53,7 +58,34 @@ final class PersonViewController: UIViewController {
 
     private func didTapLogout() {
         //UserDefaults.standard.removeObject(forKey: "userLogged")
-        appa.check()
+        appDelegate.check()
+    }
+
+    @objc private func tapChangeButton() {
+        showImagePickerController()
+    }
+}
+
+// MARK: -
+
+extension PersonViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    private func showImagePickerController() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            customView.profileImage.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            customView.profileImage.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
 
