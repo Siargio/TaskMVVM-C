@@ -9,9 +9,9 @@ import Foundation
 
 class MainTabBarViewModel {
 
-    weak var appCoordinator : AppCoordinator!
+    weak var appCoordinator : AppCoordinator?
 
-    func goToRegister(){
-        appCoordinator.goToTabBarPage()
+    func goToRegister() {
+        appCoordinator?.goToTabBarPage()
     }
 }

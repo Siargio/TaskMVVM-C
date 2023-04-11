@@ -25,11 +25,8 @@ final class HouseViewController: UIViewController {
         delegateCollectionView()
         fetchLatest()
         fetchFlashScale()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setupNavigationBar()
+        self.tabBarController?.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -85,9 +82,9 @@ extension HouseViewController {
     func setupNavigationBar() {
         navigationTitle()
         navigationImage()
-        self.tabBarController?.navigationController?.navigationBar.tintColor = .black
-        self.tabBarController?.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftButton"), style: .done, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = .black
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftButton"), style: .done, target: nil, action: nil)
     }
 
     private func navigationTitle() {
@@ -110,7 +107,7 @@ extension HouseViewController {
         titleLabel.attributedText = attributedString
         titleLabel.textAlignment = .center
 
-        self.tabBarController?.navigationItem.titleView = titleLabel
+        navigationItem.titleView = titleLabel
     }
 
     private func navigationImage() {
@@ -123,8 +120,7 @@ extension HouseViewController {
         let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         space.width = 35
 
-        self.tabBarController?.navigationItem.rightBarButtonItems = [
-            space, barButtonItem]
+        navigationItem.rightBarButtonItems = [space, barButtonItem]
     }
 }
 

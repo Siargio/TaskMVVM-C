@@ -24,16 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window = UIWindow(frame: UIScreen.main.bounds)
             let navigationCon = UINavigationController.init()
             appCoordinator = AppCoordinator(navCon: navigationCon)
-            appCoordinator!.startUser()
-            window!.rootViewController = navigationCon
-            window!.makeKeyAndVisible()
+            appCoordinator?.startUser()
+            window?.rootViewController = navigationCon
+            window?.makeKeyAndVisible()
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
             let navigationCon = UINavigationController.init()
             appCoordinator = AppCoordinator(navCon: navigationCon)
-            appCoordinator!.start()
-            window!.rootViewController = navigationCon
-            window!.makeKeyAndVisible()
+            appCoordinator?.start()
+            window?.rootViewController = navigationCon
+            window?.makeKeyAndVisible()
         }
     }
 }

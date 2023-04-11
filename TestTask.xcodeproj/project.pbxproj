@@ -44,7 +44,7 @@
 		ECC4B38529C851FB006FFD4E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B38429C851FB006FFD4E /* MainTabBarController.swift */; };
 		ECC4B38C29C85401006FFD4E /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B38B29C85401006FFD4E /* HouseViewController.swift */; };
 		ECC4B38E29C85471006FFD4E /* FovoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B38D29C85471006FFD4E /* FovoriteViewController.swift */; };
-		ECC4B39029C85486006FFD4E /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B38F29C85486006FFD4E /* Shopping.swift */; };
+		ECC4B39029C85486006FFD4E /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B38F29C85486006FFD4E /* ShoppingViewController.swift */; };
 		ECC4B39229C854BD006FFD4E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39129C854BD006FFD4E /* MessageViewController.swift */; };
 		ECC4B39429C854D1006FFD4E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39329C854D1006FFD4E /* PersonViewController.swift */; };
 		ECC4B39629C85653006FFD4E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39529C85653006FFD4E /* PersonView.swift */; };
@@ -101,7 +101,7 @@
 		ECC4B38429C851FB006FFD4E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		ECC4B38B29C85401006FFD4E /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		ECC4B38D29C85471006FFD4E /* FovoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FovoriteViewController.swift; sourceTree = "<group>"; };
-		ECC4B38F29C85486006FFD4E /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
+		ECC4B38F29C85486006FFD4E /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		ECC4B39129C854BD006FFD4E /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		ECC4B39329C854D1006FFD4E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		ECC4B39529C85653006FFD4E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
@@ -150,7 +150,8 @@
 		EC7B50A729BF8EC9002F387D /* Cordinator */ = {
 			isa = PBXGroup;
 			children = (
-				ECA8A02529BF72AB00C42489 /* Cordinators */,
+				ECA8A02129BF6FE700C42489 /* Coordinator.swift */,
+				ECA8A02329BF701200C42489 /* AppCoordinator.swift */,
 			);
 			path = Cordinator;
 			sourceTree = "<group>";
@@ -219,15 +220,6 @@
 				ECA8A02E29BF819000C42489 /* Resources */,
 			);
 			path = TestTask;
-			sourceTree = "<group>";
-		};
-		ECA8A02529BF72AB00C42489 /* Cordinators */ = {
-			isa = PBXGroup;
-			children = (
-				ECA8A02129BF6FE700C42489 /* Coordinator.swift */,
-				ECA8A02329BF701200C42489 /* AppCoordinator.swift */,
-			);
-			path = Cordinators;
 			sourceTree = "<group>";
 		};
 		ECA8A02829BF7FAE00C42489 /* Login */ = {
@@ -408,7 +400,7 @@
 		ECC4B38829C853AD006FFD4E /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
-				ECC4B38F29C85486006FFD4E /* Shopping.swift */,
+				ECC4B38F29C85486006FFD4E /* ShoppingViewController.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -547,7 +539,7 @@
 				ECE04FC129CEE96400936230 /* ModelCollectionViewCategories.swift in Sources */,
 				ECA8A02429BF701200C42489 /* AppCoordinator.swift in Sources */,
 				ECC2C8A129DF70D900DDC9A8 /* CellBalance.swift in Sources */,
-				ECC4B39029C85486006FFD4E /* Shopping.swift in Sources */,
+				ECC4B39029C85486006FFD4E /* ShoppingViewController.swift in Sources */,
 				ECBFF05429DEC66D001A10F6 /* HeaderCell.swift in Sources */,
 				ECC89CD229CB0462001050C4 /* CellWithChevron.swift in Sources */,
 				ECB9E7E229DFFB03009DEADF /* ModelFlashSale.swift in Sources */,

@@ -44,7 +44,7 @@ final class PersonViewController: UIViewController {
     // MARK: - Setups
 
     func setupNavigationBar() {
-        self.tabBarController?.navigationItem.title = "Profile"
+        navigationItem.title = "Profile"
     }
 
     private func creatingActionButton() {

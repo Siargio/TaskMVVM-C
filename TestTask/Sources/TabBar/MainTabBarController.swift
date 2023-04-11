@@ -9,7 +9,7 @@ import UIKit
 
 final class MainTabBarViewController: UITabBarController {
 
-    var viewModel : MainTabBarViewModel!
+    var viewModel : MainTabBarViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,28 +22,34 @@ final class MainTabBarViewController: UITabBarController {
         let houseViewController = HouseViewController()
         houseViewController.tabBarItem.image = UIImage(named: "house")
         houseViewController.tabBarItem.selectedImage = UIImage(named: "houseSelect")?.withRenderingMode(.alwaysOriginal)
+        let navControllerHouse = UINavigationController(rootViewController: houseViewController)
 
         let favoriteViewController = FavoriteViewController()
         favoriteViewController.tabBarItem.image = UIImage(named: "heart")
         favoriteViewController.tabBarItem.selectedImage = UIImage(named: "heartSelect")?.withRenderingMode(.alwaysOriginal)
+        let navControllerFavorite = UINavigationController(rootViewController: favoriteViewController)
 
         let shoppingViewController = ShoppingViewController()
         shoppingViewController.tabBarItem.image = UIImage(named: "cart")
         shoppingViewController.tabBarItem.selectedImage = UIImage(named: "cartSelect")?.withRenderingMode(.alwaysOriginal)
+        let navControllerShopping = UINavigationController(rootViewController: shoppingViewController)
 
         let messageViewController = MessageViewController()
         messageViewController.tabBarItem.image = UIImage(named: "message")
         messageViewController.tabBarItem.selectedImage = UIImage(named: "messageSelect")?.withRenderingMode(.alwaysOriginal)
+        let navControllerMessage = UINavigationController(rootViewController: messageViewController)
+
 
         let personViewController = PersonViewController()
         personViewController.tabBarItem.image = UIImage(named: "person")
         personViewController.tabBarItem.selectedImage = UIImage(named: "personSelect")?.withRenderingMode(.alwaysOriginal)
+        let navControllerPerson = UINavigationController(rootViewController: personViewController)
 
-        let controllers = [houseViewController,
-                           favoriteViewController,
-                           shoppingViewController,
-                           messageViewController,
-                           personViewController]
+        let controllers = [navControllerHouse,
+                           navControllerFavorite,
+                           navControllerShopping,
+                           navControllerMessage,
+                           navControllerPerson]
         setViewControllers(controllers, animated: true)
     }
 
