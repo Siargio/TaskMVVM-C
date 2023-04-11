@@ -9,7 +9,7 @@ import UIKit
 
 final class RegisterViewController: UIViewController {
 
-    var viewModel : RegisterViewModel!
+    var viewModel : RegisterViewModel?
     private let customView = RegistrationView()
 
     let nameValidType: String.ValidTypes = .name
@@ -46,7 +46,7 @@ final class RegisterViewController: UIViewController {
     }
 
     @objc func goTOLoginScreen() {
-        viewModel.goToLogin()
+        viewModel?.goToLogin()
     }
 
     @objc func goTOHouseScreen() {
@@ -67,7 +67,7 @@ final class RegisterViewController: UIViewController {
                 password: passwordText,
                 email: emailText)
 
-            viewModel.goToLogin()
+            viewModel?.goToLogin()
         } else {
             alertOk(title: "Проверьте введенные данные.", message: "")
         }

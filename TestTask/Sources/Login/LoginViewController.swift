@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - Property
 
-    var viewModel : LoginViewModel!
+    var viewModel : LoginViewModel?
     private let customView = LoginView()
 
     // MARK: - LifeCycle
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
             alertOk(title: "Пользователь не найден.", message: "")
         } else if user?.password == password {
             UserDefaults.standard.set(true, forKey: "userLogged")
-            viewModel.goToRegister()
+            viewModel?.goToRegister()
             guard let activeUser = user else { return }
             DataBase.shard.saveActiveUser(user: activeUser)
         } else {
