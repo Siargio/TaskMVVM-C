@@ -1,11 +1,3 @@
-//
-//  BaseCell.swift
-//  TestTask
-//
-//  Created by Sergio on 7.04.23.
-//
-
-
 import UIKit
 
 class BaseCell: UITableViewCell {
@@ -13,21 +5,21 @@ class BaseCell: UITableViewCell {
     //MARK: - UIElements
 
     let imageCircle: UIImageView = {
-        let image = UIImage(named: "circle")
+        let image = R.Image.Home.circle
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let imageCreditCard: UIImageView = {
-        let image = UIImage(systemName: "creditcard")
+        let image = R.Image.Home.imageCreditCard
         let imageView = UIImageView(image: image)
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    let label = UILabel(textAlignment: .left, text: "Trade store", font: .montserratMedium14(), textColor: CommonColor.customBlack)
+    let label = UILabel(textAlignment: .left, text: "", font: .montserratMedium14(), textColor: CommonColor.customBlack)
 
     // MARK: - Init
 

@@ -1,10 +1,3 @@
-//
-//  Cell.swift
-//  TestTask
-//
-//  Created by Sergio on 22.03.23.
-//
-
 import UIKit
 
 final class CellWithChevron: BaseCell {
@@ -12,7 +5,7 @@ final class CellWithChevron: BaseCell {
     //MARK: - UIElements
 
     let imageChevron: UIImageView = {
-        let image = UIImage(named: "chevron")
+        let image = R.Image.Home.imageChevron
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

@@ -1,17 +1,10 @@
-//
-//  CollectionViewLatest.swift
-//  TestTask
-//
-//  Created by Sergio on 25.03.23.
-//
-
 import UIKit
 
 final class CollectionViewLatest: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewLatest"
+    static let identifier = R.Text.Home.identifierLatest
 
     // MARK: - UIElements
 
@@ -22,7 +15,7 @@ final class CollectionViewLatest: UICollectionViewCell {
     }()
 
     private let backgroundCategoriesImage: UIImageView = {
-        let image = UIImage(named: "backgroundCategories")
+        let image = R.Image.Home.backgroundCategoriesImage
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -55,7 +48,7 @@ final class CollectionViewLatest: UICollectionViewCell {
 
     let addProductButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "circlePlus"), for: .normal)
+        button.setImage(R.Image.Home.circlePlus, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

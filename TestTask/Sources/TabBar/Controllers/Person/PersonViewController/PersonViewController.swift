@@ -1,10 +1,3 @@
-//
-//  PersonViewController.swift
-//  TestTask
-//
-//  Created by Sergio on 20.03.23.
-//
-
 import UIKit
 
 final class PersonViewController: UIViewController {
@@ -44,7 +37,7 @@ final class PersonViewController: UIViewController {
     // MARK: - Setups
 
     func setupNavigationBar() {
-        navigationItem.title = "Profile"
+        navigationItem.title = R.Text.Home.titleProfile
     }
 
     private func creatingActionButton() {
@@ -57,7 +50,6 @@ final class PersonViewController: UIViewController {
     }
 
     private func didTapLogout() {
-        //UserDefaults.standard.removeObject(forKey: "userLogged")
         appDelegate.check()
     }
 
@@ -142,7 +134,7 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if data[indexPath.section].sectionsNumber == 1 {
-            UserDefaults.standard.removeObject(forKey: "userLogged")
+            UserDefaults.standard.removeObject(forKey: R.Text.userDefaultsKey)
             didTapLogout()
         }
     }

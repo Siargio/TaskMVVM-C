@@ -1,9 +1,3 @@
-//
-//  HouseViewController.swift
-//  TestTask
-//
-//  Created by Sergio on 20.03.23.
-//
 
 import UIKit
 
@@ -30,7 +24,7 @@ final class HouseViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        customView.searchText(to: customView.searchBar, placeHolderText: "What are you looking for?")
+        customView.searchText(to: customView.searchBar, placeHolderText: R.Text.Home.searchPlaceHolderText)
     }
     
     // MARK: - Setups
@@ -42,7 +36,7 @@ final class HouseViewController: UIViewController {
 
     func fetchLatest() {
 
-        let url = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
+        let url = R.Text.Url.urlLatest
 
         NetworkDataFetch.shared.fetchAlbum(urlString: url) { modelLatest, error in
             if error == nil {
@@ -59,7 +53,7 @@ final class HouseViewController: UIViewController {
 
     func fetchFlashScale() {
 
-        let url = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
+        let url = R.Text.Url.urlFlashSale
 
         NetworkDataFetch.shared.fetchFlashScale(urlString: url) { modelFlashSale, error in
             if error == nil {
@@ -84,7 +78,7 @@ extension HouseViewController {
         navigationImage()
         navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftButton"), style: .done, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.Image.Home.leftBarButtonItem, style: .done, target: nil, action: nil)
     }
 
     private func navigationTitle() {
@@ -111,7 +105,7 @@ extension HouseViewController {
     }
 
     private func navigationImage() {
-        var image = UIImage(named: "personPhoto")
+        var image = R.Image.Home.imageNavBar
         image = image?.withRenderingMode(.alwaysOriginal)
         let customView = UIImageView(image: image)
         customView.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
@@ -193,21 +187,21 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.categoriesLabel.text = "Latest"
+            header.categoriesLabel.text = R.Text.Home.headerLatest
             return header
 
         case 2:
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.categoriesLabel.text = "Flash Sale"
+            header.categoriesLabel.text = R.Text.Home.headerFlashSale
             return header
             
         default:
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else {
                 return UICollectionReusableView()
             }
-            header.categoriesLabel.text = "Brands"
+            header.categoriesLabel.text = R.Text.Home.headerBrands
             return header
         }
     }

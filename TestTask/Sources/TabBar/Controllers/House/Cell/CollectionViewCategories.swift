@@ -1,29 +1,22 @@
-//
-//  Cell.swift
-//  TestTask
-//
-//  Created by Sergio on 25.03.23.
-//
-
 import UIKit
 
 final class CollectionViewCategories: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewCategories"
+    static let identifier = R.Text.Home.identifierCategories
 
     // MARK: - UIElements
 
     let imageCircle: UIImageView = {
-        let image = UIImage(named: "circle")
+        let image = R.Image.Home.circle
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let imageInImageCircle: UIImageView = {
-        let image = UIImage(named: "phone")
+        let image = R.Image.Home.phone
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -31,7 +24,7 @@ final class CollectionViewCategories: UICollectionViewCell {
 
     let categoriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phones"
+        label.text = R.Text.Home.categoriesLabelPhones
         label.textColor = .gray
         label.font = .montserratLight9()
         label.translatesAutoresizingMaskIntoConstraints = false

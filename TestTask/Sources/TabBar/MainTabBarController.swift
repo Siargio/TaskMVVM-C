@@ -1,10 +1,3 @@
-//
-//  MainTabBarController.swift
-//  TestTask
-//
-//  Created by Sergio on 20.03.23.
-//
-
 import UIKit
 
 final class MainTabBarViewController: UITabBarController {
@@ -20,29 +13,29 @@ final class MainTabBarViewController: UITabBarController {
     func setupTabBarViewControllers() {
 
         let houseViewController = HouseViewController()
-        houseViewController.tabBarItem.image = UIImage(named: "house")
-        houseViewController.tabBarItem.selectedImage = UIImage(named: "houseSelect")?.withRenderingMode(.alwaysOriginal)
+        houseViewController.tabBarItem.image = R.Image.TabBar.house
+        houseViewController.tabBarItem.selectedImage = R.Image.TabBar.houseSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerHouse = UINavigationController(rootViewController: houseViewController)
 
         let favoriteViewController = FavoriteViewController()
-        favoriteViewController.tabBarItem.image = UIImage(named: "heart")
-        favoriteViewController.tabBarItem.selectedImage = UIImage(named: "heartSelect")?.withRenderingMode(.alwaysOriginal)
+        favoriteViewController.tabBarItem.image = R.Image.TabBar.heart
+        favoriteViewController.tabBarItem.selectedImage = R.Image.TabBar.heartSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerFavorite = UINavigationController(rootViewController: favoriteViewController)
 
         let shoppingViewController = ShoppingViewController()
-        shoppingViewController.tabBarItem.image = UIImage(named: "cart")
-        shoppingViewController.tabBarItem.selectedImage = UIImage(named: "cartSelect")?.withRenderingMode(.alwaysOriginal)
+        shoppingViewController.tabBarItem.image = R.Image.TabBar.cart
+        shoppingViewController.tabBarItem.selectedImage = R.Image.TabBar.cartSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerShopping = UINavigationController(rootViewController: shoppingViewController)
 
         let messageViewController = MessageViewController()
-        messageViewController.tabBarItem.image = UIImage(named: "message")
-        messageViewController.tabBarItem.selectedImage = UIImage(named: "messageSelect")?.withRenderingMode(.alwaysOriginal)
+        messageViewController.tabBarItem.image = R.Image.TabBar.message
+        messageViewController.tabBarItem.selectedImage = R.Image.TabBar.messageSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerMessage = UINavigationController(rootViewController: messageViewController)
 
 
         let personViewController = PersonViewController()
-        personViewController.tabBarItem.image = UIImage(named: "person")
-        personViewController.tabBarItem.selectedImage = UIImage(named: "personSelect")?.withRenderingMode(.alwaysOriginal)
+        personViewController.tabBarItem.image = R.Image.TabBar.person
+        personViewController.tabBarItem.selectedImage = R.Image.TabBar.messageSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerPerson = UINavigationController(rootViewController: personViewController)
 
         let controllers = [navControllerHouse,

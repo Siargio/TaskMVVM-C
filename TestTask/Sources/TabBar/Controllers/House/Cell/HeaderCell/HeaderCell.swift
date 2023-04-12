@@ -1,17 +1,10 @@
-//
-//  HeaderCell.swift
-//  TestTask
-//
-//  Created by Sergio on 6.04.23.
-//
-
 import Foundation
 
 import UIKit
 
 class HeaderCell: UICollectionReusableView {
 
-    static let identifier = "headerCell"
+    static let identifier = R.Text.Home.headerCellIdentifier
 
     // MARK: - UI elements
 
@@ -24,7 +17,7 @@ class HeaderCell: UICollectionReusableView {
 
     lazy var titleRightLabel: UILabel = {
         let title = UILabel()
-        title.text = "View all"
+        title.text = R.Text.Home.titleRightLabelText
         title.font = .montserratLight11()
         title.textColor = .black
         title.translatesAutoresizingMaskIntoConstraints = false

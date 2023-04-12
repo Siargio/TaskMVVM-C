@@ -1,10 +1,3 @@
-//
-//  RegistrationView.swift
-//  TestTask
-//
-//  Created by Sergio on 14.03.23.
-//
-
 import UIKit
 
 final class RegistrationView: UIView {
@@ -13,35 +6,35 @@ final class RegistrationView: UIView {
 
     private let singInLabel = UILabel(
         textAlignment: .center,
-        text: "Sign in",
+        text: R.Text.Register.singINg,
         font: .montserratSemiBold28(),
         textColor: CommonColor.customBlack)
 
-    let firstNameTextField = UITextField(placeholder: "First name")
+    let firstNameTextField = UITextField(placeholder: R.Text.Register.placeholderName)
 
     let passwordTextField: UITextField = {
-        let textField = UITextField(placeholder: "Password")
+        let textField = UITextField(placeholder: R.Text.placeholderPassword)
         textField.setLeftPaddingPoints(10)
         textField.isSecureTextEntry = true
         textField.enablePasswordToggle()
         return textField
     }()
 
-    let emailTextField = UITextField(placeholder: "Email")
+    let emailTextField = UITextField(placeholder: R.Text.placeholderEmail)
 
     let singInButton = UIButton(
-        text: "Sing in",
+        text: R.Text.Register.singINg,
         font: .montserratBold15(),
         tintColor: CommonColor.customWhiteText,
         backgroundColor: CommonColor.customPurpleButton)
 
     private let haveAccountLabel = UILabel(
-        text: "Already have an account?",
+        text: R.Text.Register.haveAccountLabelText,
         font: .montserratLight11(),
         textColor: CommonColor.customGrayColorAlready)
 
     let logInButton = UIButton(
-        text: "   Log in",
+        text: R.Text.Register.LoginButtonText,
         font: .montserratLight11(),
         tintColor: CommonColor.customPurpleLogIn,
         backgroundColor: .clear,
@@ -49,8 +42,8 @@ final class RegistrationView: UIView {
 
     private let googleButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "google")
-        button.setTitle("Sing in with Google", for: .normal)
+        let image = R.Image.Register.google
+        button.setTitle(R.Text.Register.googleButtonTitle, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .montserratMedium14()
         button.setImage(image, for: .normal)
@@ -61,8 +54,8 @@ final class RegistrationView: UIView {
 
     private let appleButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "apple")
-        button.setTitle("Sing in with Apple", for: .normal)
+        let image = R.Image.Register.apple
+        button.setTitle(R.Text.Register.appleButtonTitle, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .montserratMedium14()
         button.setImage(image, for: .normal)

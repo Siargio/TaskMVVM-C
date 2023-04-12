@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TestTask
-//
-//  Created by Sergio on 13.03.23.
-//
-
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -49,14 +42,14 @@ class LoginViewController: UIViewController {
         let user = findUserDataBase(email: email)
 
         if user == nil {
-            alertOk(title: "Пользователь не найден.", message: "")
+            alertOk(title: R.Text.Login.alertError, message: "")
         } else if user?.password == password {
-            UserDefaults.standard.set(true, forKey: "userLogged")
+            UserDefaults.standard.set(true, forKey: R.Text.userDefaultsKey)
             viewModel?.goToRegister()
             guard let activeUser = user else { return }
             DataBase.shard.saveActiveUser(user: activeUser)
         } else {
-            alertOk(title: "Не верный пароль", message: "")
+            alertOk(title: R.Text.Login.alertWrongPassword, message: "")
         }
     }
 

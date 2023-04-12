@@ -1,10 +1,3 @@
-//
-//  NetworkDataFetch.swift
-//  TestTask
-//
-//  Created by Sergio on 8.04.23.
-//
-
 import UIKit
 
 final class NetworkDataFetch {

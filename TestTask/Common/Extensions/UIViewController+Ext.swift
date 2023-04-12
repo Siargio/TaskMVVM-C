@@ -1,10 +1,3 @@
-//
-//  UIViewController+Ext.swift
-//  TestTask
-//
-//  Created by Sergio on 8.04.23.
-//
-
 import UIKit
 
 extension UIViewController {

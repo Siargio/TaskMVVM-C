@@ -1,30 +1,22 @@
-//
-//  CollectionViewBrands.swift
-//  TestTask
-//
-//  Created by Sergio on 6.04.23.
-//
-
 import UIKit
 
 final class CollectionViewBrands: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewBrands"
+    static let identifier = R.Text.Home.identifierBrands
 
     // MARK: - UIElements
 
     let backgroundCellImage: UIImageView = {
-        let image = UIImage(named: "backgroundCell")
+        let image = R.Image.Home.backgroundCellBrands
         let imageView = UIImageView(image: image)
-
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let backgroundCategoriesImage: UIImageView = {
-        let image = UIImage(named: "backgroundCategories")
+        let image = R.Image.Home.backgroundCategoriesImage
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -32,7 +24,7 @@ final class CollectionViewBrands: UICollectionViewCell {
 
         let categoriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phones"
+        label.text = R.Text.Home.categoriesLabelPhones
         label.textColor = .black
         label.font = .montserratLight6()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +33,7 @@ final class CollectionViewBrands: UICollectionViewCell {
 
     let productLabel: UILabel = {
         let label = UILabel()
-        label.text = "Samsung S10"
+        label.text = R.Text.Home.productLabelSamsung
         label.textColor = .white
         label.font = .montserratSemiBold10()
         label.numberOfLines = 2
@@ -51,7 +43,7 @@ final class CollectionViewBrands: UICollectionViewCell {
 
     let costLabel: UILabel = {
         let label = UILabel()
-        label.text = "$ 180,000"
+        label.text = R.Text.Home.costLabel
         label.textColor = .white
         label.font = .montserratSemiBold9()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +52,7 @@ final class CollectionViewBrands: UICollectionViewCell {
 
     let addProductButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "circlePlus"), for: .normal)
+        button.setImage(R.Image.Home.circlePlus, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

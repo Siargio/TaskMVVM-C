@@ -1,10 +1,3 @@
-//
-//  HouseView.swift
-//  TestTask
-//
-//  Created by Sergio on 20.03.23.
-//
-
 import UIKit
 
 final class HousesView: UIView {
@@ -14,7 +7,6 @@ final class HousesView: UIView {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
-        //searchBar.placeholder = "What are you looking for?"
         searchBar.isTranslucent = true
         searchBar.searchTextField.layer.cornerRadius = 18
         searchBar.searchTextField.layer.masksToBounds = true
@@ -24,9 +16,9 @@ final class HousesView: UIView {
 
     private let locationButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "imageLocation")
+        let image = R.Image.Home.locationButtonImage
         button.setImage(image, for: .normal)
-        button.setTitle("Location", for: .normal)
+        button.setTitle(R.Text.Home.locationButtonTitle, for: .normal)
         button.setTitleColor(CommonColor.textColorSearchBarPlaceholder, for: .normal)
         button.titleLabel?.font = UIFont.montserratRegular14()
         button.imageEdgeInsets.left = +75
@@ -67,11 +59,10 @@ final class HousesView: UIView {
     // MARK: - Setups
 
         func searchText(to searchBar: UISearchBar, placeHolderText: String) {
-            //searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-            let searchTextField: UITextField = searchBar.value(forKey: "searchField") as? UITextField ?? UITextField()
 
-            //searchTextField.textAlignment = NSTextAlignment.left
-            let image = UIImage(systemName: "magnifyingglass")
+            let searchTextField: UITextField = searchBar.value(forKey: R.Text.Home.searchTextFieldKey) as? UITextField ?? UITextField()
+
+            let image = R.Image.Home.magnifyingGlass
             let imageView = UIImageView.init(image: image)
             imageView.tintColor = .gray
             searchTextField.leftView = nil
@@ -81,9 +72,6 @@ final class HousesView: UIView {
             searchTextField.rightView = imageView
             searchTextField.rightViewMode = .always
             
-            //searchTextField.addSubview(imageView)
-            //imageView.frame = CGRect(x: 240, y: 7, width: 20, height: 20)
-
             searchTextField.backgroundColor = CommonColor.backgroundColorSearchBar
 
             let searchBarWidth = self.frame.width

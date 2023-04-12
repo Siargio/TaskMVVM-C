@@ -1,10 +1,3 @@
-//
-//  CommonColor.swift
-//  TestTask
-//
-//  Created by Sergio on 13.03.23.
-//
-
 import UIKit
 
 enum CommonColor {

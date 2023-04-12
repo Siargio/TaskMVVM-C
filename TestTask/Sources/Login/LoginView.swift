@@ -1,29 +1,22 @@
-//
-//  LoginView.swift
-//  TestTask
-//
-//  Created by Sergio on 19.03.23.
-//
-
 import UIKit
 
 final class LoginView: UIView {
 
     // MARK: - UIElements
 
-    private let welcomeLabel = UILabel(textAlignment: .center, text: "Welcome back", font: .montserratSemiBold28(), textColor: CommonColor.customBlack)
+    private let welcomeLabel = UILabel(textAlignment: .center, text: R.Text.Login.welcomeLabelText, font: .montserratSemiBold28(), textColor: CommonColor.customBlack)
 
-    let emailTexField = UITextField(placeholder: "Email")
+    let emailTexField = UITextField(placeholder: R.Text.placeholderEmail)
 
     let passwordTextField: UITextField = {
-        let textField = UITextField(placeholder: "Password")
+        let textField = UITextField(placeholder: R.Text.placeholderPassword)
         textField.setLeftPaddingPoints(10)
         textField.isSecureTextEntry = true
         textField.enablePasswordToggle()
         return textField
     }()
 
-    let loginButton = UIButton(text: "Login", font: .montserratBold15(), tintColor: CommonColor.customWhiteText, backgroundColor: CommonColor.customPurpleButton)
+    let loginButton = UIButton(text: R.Text.Login.loginButtonText, font: .montserratBold15(), tintColor: CommonColor.customWhiteText, backgroundColor: CommonColor.customPurpleButton)
 
     private let stackViewAll: UIStackView = {
         let stackView = UIStackView()

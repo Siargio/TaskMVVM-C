@@ -1,10 +1,3 @@
-//
-//  LoginViewModel.swift
-//  TestTask
-//
-//  Created by Sergio on 13.03.23.
-//
-
 import Foundation
 
 class LoginViewModel {

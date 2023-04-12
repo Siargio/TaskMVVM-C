@@ -1,17 +1,10 @@
-//
-//  CollectionViewFlashSale.swift
-//  TestTask
-//
-//  Created by Sergio on 5.04.23.
-//
-
 import UIKit
 
 final class CollectionViewFlashSale: UICollectionViewCell {
 
     // MARK: - Properties
 
-    static let identifier = "collectionViewFlashSale"
+    static let identifier = R.Text.Home.identifierFlashSale
 
     // MARK: - UIElements
 
@@ -23,21 +16,21 @@ final class CollectionViewFlashSale: UICollectionViewCell {
     }()
 
     private let backgroundCategoriesImage: UIImageView = {
-        let image = UIImage(named: "backgroundCategoriesBig")
+        let image = R.Image.Home.backgroundCategoriesImageBig
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let backgroundSaleImage: UIImageView = {
-        let image = UIImage(named: "saleBackground")
+        let image = R.Image.Home.backgroundSaleImage
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let humanIkonImage: UIImageView = {
-        let image = UIImage(named: "humanIkon")
+        let image = R.Image.Home.humanIkon
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -78,14 +71,14 @@ final class CollectionViewFlashSale: UICollectionViewCell {
 
     let addProductButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "circlePlusBig"), for: .normal)
+        button.setImage(R.Image.Home.circlePlusBig, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     let addLikeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "circleHeart"), for: .normal)
+        button.setImage(R.Image.Home.circleHeart, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -127,10 +120,6 @@ final class CollectionViewFlashSale: UICollectionViewCell {
 
     private func setLayout() {
         NSLayoutConstraint.activate([
-//            backgroundCellImage.topAnchor.constraint(equalTo: topAnchor),
-//            backgroundCellImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            backgroundCellImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            backgroundCellImage.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             addProductButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             addProductButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),

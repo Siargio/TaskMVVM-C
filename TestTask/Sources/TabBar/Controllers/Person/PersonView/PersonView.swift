@@ -1,10 +1,3 @@
-//
-//  PersonView.swift
-//  TestTask
-//
-//  Created by Sergio on 20.03.23.
-//
-
 import UIKit
 
 final class PersonView: UIView {
@@ -12,35 +5,35 @@ final class PersonView: UIView {
     // MARK: - UIElements
 
     let profileImage: UIImageView = {
-        let image = UIImage(named: "personPhotoProfile")
+        let image = R.Image.Home.profileImage
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let changePhotoButton = UIButton(
-        text: "Change photo",
+        text: R.Text.Home.changePhotoButtonText,
         font: .montserratLight9(),
         tintColor: CommonColor.customGrayTex,
         backgroundColor: .clear)
 
     private let nameLabel = UILabel(
         textAlignment: .center,
-        text: "Satria Adhi Pradana",
+        text: R.Text.Home.nameLabelText,
         font: .montserratBold16(),
         textColor: CommonColor.customBlack)
 
     private let uploadItemButton = UIButton(
-        text: "Upload item",
+        text: R.Text.Home.uploadItemButtonText,
         font: .montserratSemiBold15(),
         tintColor: CommonColor.customWhiteText,
         backgroundColor: CommonColor.customPurpleButton)
 
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(BaseCell.self, forCellReuseIdentifier: "BaseCell")
-        tableView.register(CellWithChevron.self, forCellReuseIdentifier: "CellWithChevron")
-        tableView.register(BalanceCell.self, forCellReuseIdentifier: "BalanceCell")
+        tableView.register(BaseCell.self, forCellReuseIdentifier: R.Text.Home.identifierBaseCell)
+        tableView.register(CellWithChevron.self, forCellReuseIdentifier: R.Text.Home.identifierCellWithChevron)
+        tableView.register(BalanceCell.self, forCellReuseIdentifier: R.Text.Home.identifierBalanceCell)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false

@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  TestTask
-//
-//  Created by Sergio on 13.03.23.
-//
-
 import UIKit
 
 @main
@@ -20,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func check() {
-        if UserDefaults.standard.value(forKey: "userLogged") != nil {
+        if UserDefaults.standard.value(forKey: R.Text.userDefaultsKey) != nil {
             window = UIWindow(frame: UIScreen.main.bounds)
             let navigationCon = UINavigationController.init()
             appCoordinator = AppCoordinator(navCon: navigationCon)

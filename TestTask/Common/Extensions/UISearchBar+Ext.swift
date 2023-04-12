@@ -1,10 +1,3 @@
-//
-//  UISearchBar+Ext.swift
-//  TestTask
-//
-//  Created by Sergio on 23.03.23.
-//
-
 import UIKit
 
 extension UISearchBar {

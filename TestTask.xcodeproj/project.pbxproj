@@ -49,6 +49,7 @@
 		ECC4B39429C854D1006FFD4E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39329C854D1006FFD4E /* PersonViewController.swift */; };
 		ECC4B39629C85653006FFD4E /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39529C85653006FFD4E /* PersonView.swift */; };
 		ECC4B39829C8572D006FFD4E /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B39729C8572D006FFD4E /* MainTabBarViewModel.swift */; };
+		ECC5236F29E6AB3200BDEF00 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5236E29E6AB3200BDEF00 /* Resources.swift */; };
 		ECC89CD229CB0462001050C4 /* CellWithChevron.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD129CB0462001050C4 /* CellWithChevron.swift */; };
 		ECC89CD529CB3843001050C4 /* ModelCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */; };
 		ECCA493129E1C2C100FDE892 /* NetworkDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA493029E1C2C100FDE892 /* NetworkDataFetch.swift */; };
@@ -106,6 +107,7 @@
 		ECC4B39329C854D1006FFD4E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		ECC4B39529C85653006FFD4E /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		ECC4B39729C8572D006FFD4E /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		ECC5236E29E6AB3200BDEF00 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		ECC89CD129CB0462001050C4 /* CellWithChevron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithChevron.swift; sourceTree = "<group>"; };
 		ECC89CD429CB3843001050C4 /* ModelCellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCellTableView.swift; sourceTree = "<group>"; };
 		ECCA493029E1C2C100FDE892 /* NetworkDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetch.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		ECA8A02E29BF819000C42489 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ECC5236E29E6AB3200BDEF00 /* Resources.swift */,
 				EC7B50A829BF9628002F387D /* Fonts */,
 				ECA8A01629BF6A8700C42489 /* Assets.xcassets */,
 			);
@@ -573,6 +576,7 @@
 				ECE6E9AE29DE05F9004D632B /* CollectionViewFlashSale.swift in Sources */,
 				ECC4B38C29C85401006FFD4E /* HouseViewController.swift in Sources */,
 				ECC89CD529CB3843001050C4 /* ModelCellTableView.swift in Sources */,
+				ECC5236F29E6AB3200BDEF00 /* Resources.swift in Sources */,
 				EC7B50B629BF99B1002F387D /* UIColor+Ext.swift in Sources */,
 				ECA8A02A29BF7FC100C42489 /* LoginViewModel.swift in Sources */,
 				ECA8A02229BF6FE700C42489 /* Coordinator.swift in Sources */,

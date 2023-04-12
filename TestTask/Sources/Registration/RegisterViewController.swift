@@ -1,10 +1,3 @@
-//
-//  RegisterViewController.swift
-//  TestTask
-//
-//  Created by Sergio on 13.03.23.
-//
-
 import UIKit
 
 final class RegisterViewController: UIViewController {
@@ -57,7 +50,7 @@ final class RegisterViewController: UIViewController {
         let user = findUserDataBase(email: emailText)
 
         if user?.email == emailText {
-            alertOk(title: "Пользователь с таким эмейлом уже зарегистрирован", message: "")
+            alertOk(title: R.Text.Register.alertError, message: "")
         } else if firstNameText.isValid(validType: nameValidType)
             && passwordText.isValid(validType: passwordValueType)
             && emailText.isValid(validType: emailValueType) == true {
@@ -69,7 +62,7 @@ final class RegisterViewController: UIViewController {
 
             viewModel?.goToLogin()
         } else {
-            alertOk(title: "Проверьте введенные данные.", message: "")
+            alertOk(title: R.Text.Register.alertCheck, message: "")
         }
     }
 
