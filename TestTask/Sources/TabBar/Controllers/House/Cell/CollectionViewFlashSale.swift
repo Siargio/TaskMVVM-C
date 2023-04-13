@@ -89,9 +89,7 @@ final class CollectionViewFlashSale: UICollectionViewCell {
         super.init(frame: frame)
         setupHierarchy()
         setLayout()
-        backgroundColor = .clear
-        layer.cornerRadius = 15
-        clipsToBounds = true
+        setupCell()
     }
 
     override func layoutSubviews() {
@@ -104,6 +102,12 @@ final class CollectionViewFlashSale: UICollectionViewCell {
     }
 
     // MARK: - Setup
+
+    private func setupCell() {
+        backgroundColor = .clear
+        layer.cornerRadius = 15
+        clipsToBounds = true
+    }
 
     private func setupHierarchy() {
         addSubview(backgroundCellImage)

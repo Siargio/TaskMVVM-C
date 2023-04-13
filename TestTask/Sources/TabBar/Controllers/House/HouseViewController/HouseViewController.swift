@@ -4,6 +4,7 @@ import UIKit
 final class HouseViewController: UIViewController {
 
     // MARK: - Property
+
     private let modelCategories = ModelCollectionViewCategories.setups
     private var modelLatest = [Latest]()
     private var modelFlashSale = [FlashSale]()
@@ -78,18 +79,20 @@ extension HouseViewController {
         navigationImage()
         navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.Image.Home.leftBarButtonItem, style: .done, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: R.Image.Home.leftBarButtonItem,
+            style: .done, target: nil, action: nil)
     }
 
     private func navigationTitle() {
-        let title = "Trade by"
+        let title = R.Text.Home.titleHome
         let attrs = [
             NSAttributedString.Key.foregroundColor: UIColor.black,
             NSAttributedString.Key.font: UIFont.montserratBold22()
         ]
         let attributedString = NSMutableAttributedString(string: title, attributes: attrs as [NSAttributedString.Key : Any])
 
-        let subtitle = "bata"
+        let subtitle = R.Text.Home.subTitleHome
         let subtitleAttrs = [
             NSAttributedString.Key.foregroundColor: CommonColor.customPurpleButton,
             NSAttributedString.Key.font: UIFont.montserratBold22()
@@ -108,11 +111,11 @@ extension HouseViewController {
         var image = R.Image.Home.imageNavBar
         image = image?.withRenderingMode(.alwaysOriginal)
         let customView = UIImageView(image: image)
-        customView.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+        customView.frame = CGRect(x: 0, y: 0, width: Metric.HeightWightNavImage, height: Metric.HeightWightNavImage)
         let barButtonItem = UIBarButtonItem(customView: customView)
 
         let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        space.width = 35
+        space.width = Metric.HeightWightNavImage
 
         navigationItem.rightBarButtonItems = [space, barButtonItem]
     }
@@ -151,9 +154,7 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 return UICollectionViewCell()
             }
             let cellData = modelCategories[indexPath.item]
-
-            cell.categoriesLabel.text = cellData.categoriesLabel
-            cell.imageInImageCircle.image = cellData.imageInCircle
+            cell.configure(model: cellData)
             return cell
 
         case 1:
@@ -204,5 +205,13 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
             header.categoriesLabel.text = R.Text.Home.headerBrands
             return header
         }
+    }
+}
+
+// MARK: - Metric
+
+private extension HouseViewController {
+    enum Metric {
+        static let HeightWightNavImage: CGFloat = 35
     }
 }

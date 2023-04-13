@@ -172,6 +172,7 @@ final class HousesView: UIView {
                layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
 
                return layoutSection
+
            case 2:
                let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -209,6 +210,7 @@ final class HousesView: UIView {
                layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
 
                return layoutSection
+               
            default :
                let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),

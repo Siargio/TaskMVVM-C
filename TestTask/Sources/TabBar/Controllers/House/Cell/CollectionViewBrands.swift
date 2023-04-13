@@ -63,10 +63,7 @@ final class CollectionViewBrands: UICollectionViewCell {
         super.init(frame: frame)
         setupHierarchy()
         setLayout()
-        backgroundColor = .clear
-        layer.cornerRadius = 15
-        clipsToBounds = true
-
+        setupCell()
     }
 
     required init?(coder: NSCoder) {
@@ -75,6 +72,12 @@ final class CollectionViewBrands: UICollectionViewCell {
 
     // MARK: - Setup
 
+    private func setupCell() {
+        backgroundColor = .clear
+        layer.cornerRadius = 15
+        clipsToBounds = true
+    }
+
     private func setupHierarchy() {
         addSubview(backgroundCellImage)
         addSubview(backgroundCategoriesImage)
@@ -82,7 +85,6 @@ final class CollectionViewBrands: UICollectionViewCell {
         addSubview(costLabel)
         addSubview(productLabel)
         addSubview(addProductButton)
-
     }
 
     private func setLayout() {

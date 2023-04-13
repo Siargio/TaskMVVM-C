@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
             alertOk(title: R.Text.Login.alertError, message: "")
         } else if user?.password == password {
             UserDefaults.standard.set(true, forKey: R.Text.userDefaultsKey)
-            viewModel?.goToRegister()
+            viewModel?.goToTabBarPage()
             guard let activeUser = user else { return }
             DataBase.shard.saveActiveUser(user: activeUser)
         } else {

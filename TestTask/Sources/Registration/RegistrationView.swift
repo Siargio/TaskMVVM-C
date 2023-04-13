@@ -14,7 +14,7 @@ final class RegistrationView: UIView {
 
     let passwordTextField: UITextField = {
         let textField = UITextField(placeholder: R.Text.placeholderPassword)
-        textField.setLeftPaddingPoints(10)
+        textField.setLeftPaddingPoints(Metric.setLeftPaddingPointsTextfield)
         textField.isSecureTextEntry = true
         textField.enablePasswordToggle()
         return textField
@@ -47,7 +47,7 @@ final class RegistrationView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .montserratMedium14()
         button.setImage(image, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: Metric.titleEdgeInsets, bottom: 0, right: 0)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -59,7 +59,7 @@ final class RegistrationView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .montserratMedium14()
         button.setImage(image, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: Metric.titleEdgeInsets, bottom: 0, right: 0)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -74,7 +74,7 @@ final class RegistrationView: UIView {
     private lazy var stackViewAll: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 35
+        stackView.spacing = Metric.stackViewAllSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -113,20 +113,37 @@ final class RegistrationView: UIView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 110),
-            stackViewAll.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 43),
-            stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -43),
+            stackViewAll.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Metric.stackViewAllTopAnchor),
+            stackViewAll.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metric.stackViewAllLeadingTrailing),
+            stackViewAll.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metric.stackViewAllLeadingTrailing),
             stackViewAll.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor),
 
-            firstNameTextField.heightAnchor.constraint(equalToConstant: 35),
-            emailTextField.heightAnchor.constraint(equalToConstant: 35),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 35),
-            singInButton.heightAnchor.constraint(equalToConstant: 50),
-            stackViewLabelButton.heightAnchor.constraint(equalToConstant: 15)
+            firstNameTextField.heightAnchor.constraint(equalToConstant: Metric.allTextFieldHeight),
+            emailTextField.heightAnchor.constraint(equalToConstant: Metric.allTextFieldHeight),
+            passwordTextField.heightAnchor.constraint(equalToConstant: Metric.allTextFieldHeight),
+            singInButton.heightAnchor.constraint(equalToConstant: Metric.singInButtonHeight),
+            stackViewLabelButton.heightAnchor.constraint(equalToConstant: Metric.stackViewLabelButtoHeight)
         ])
 
-        stackViewAll.setCustomSpacing(90, after: singInLabel)
-        stackViewAll.setCustomSpacing(15, after: singInButton)
-        stackViewAll.setCustomSpacing(90, after: stackViewLabelButton)
+        stackViewAll.setCustomSpacing(Metric.stackViewAllSetCustomSpacing, after: singInLabel)
+        stackViewAll.setCustomSpacing(Metric.stackViewAllSetCustomSpacingButton, after: singInButton)
+        stackViewAll.setCustomSpacing(Metric.stackViewAllSetCustomSpacing, after: stackViewLabelButton)
+    }
+}
+
+// MARK: - Metric
+
+private extension RegistrationView {
+    enum Metric {
+        static let setLeftPaddingPointsTextfield: CGFloat = 10
+        static let titleEdgeInsets: CGFloat = 20
+        static let stackViewAllSpacing: CGFloat = 35
+        static let stackViewAllTopAnchor: CGFloat = 110
+        static let stackViewAllLeadingTrailing: CGFloat = 43
+        static let allTextFieldHeight: CGFloat = 35
+        static let singInButtonHeight: CGFloat = 50
+        static let stackViewLabelButtoHeight: CGFloat = 15
+        static let stackViewAllSetCustomSpacing: CGFloat = 90
+        static let stackViewAllSetCustomSpacingButton: CGFloat = 15
     }
 }

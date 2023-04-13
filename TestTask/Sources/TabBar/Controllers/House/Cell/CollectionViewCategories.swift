@@ -66,4 +66,9 @@ final class CollectionViewCategories: UICollectionViewCell {
             categoriesLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+
+    func configure(model: ModelCollectionViewCategories) {
+        categoriesLabel.text = model.categoriesLabel
+        imageInImageCircle.image = model.imageInCircle
+    }
 }

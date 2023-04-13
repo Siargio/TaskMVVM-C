@@ -34,7 +34,7 @@ final class RegisterViewController: UIViewController {
     // MARK: - Setups
     
     private func creatingActionButton() {
-        customView.singInButton.addTarget(self, action: #selector(goTOHouseScreen), for: .touchUpInside)
+        customView.singInButton.addTarget(self, action: #selector(registrationUser), for: .touchUpInside)
         customView.logInButton.addTarget(self, action: #selector(goTOLoginScreen), for: .touchUpInside)
     }
 
@@ -42,7 +42,7 @@ final class RegisterViewController: UIViewController {
         viewModel?.goToLogin()
     }
 
-    @objc func goTOHouseScreen() {
+    @objc func registrationUser() {
 
         let firstNameText = customView.firstNameTextField.text ?? ""
         let emailText = customView.emailTextField.text ?? ""

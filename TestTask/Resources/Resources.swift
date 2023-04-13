@@ -72,6 +72,8 @@ enum Resources {
         }
 
         enum Home {
+            static let titleHome = "Trade by"
+            static let subTitleHome = "bata"
             static let searchPlaceHolderText = "What are you looking for?"
             static let headerLatest = "Latest"
             static let headerFlashSale = "Flash Sale"
