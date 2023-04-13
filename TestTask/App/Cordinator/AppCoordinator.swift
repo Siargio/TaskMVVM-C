@@ -1,6 +1,7 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
+
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -14,7 +15,7 @@ class AppCoordinator: Coordinator {
     }
 
     func startUser() {
-        goToTabBarPage()
+        startTabBarPage()
     }
 
     func goToRegisterPage() {
@@ -33,11 +34,20 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(loginViewController, animated: true)
     }
 
-    func goToTabBarPage() {
+    func startTabBarPage() {
         let mainTabBarController = MainTabBarViewController()
         let mainTabBarViewModel = MainTabBarViewModel.init()
         mainTabBarViewModel.appCoordinator = self
         mainTabBarController.viewModel = mainTabBarViewModel
         navigationController.pushViewController(mainTabBarController, animated: true)
+    }
+
+    func goToTabBarPage() {
+        let mainTabBarController = MainTabBarViewController()
+        let mainTabBarViewModel = MainTabBarViewModel.init()
+        mainTabBarViewModel.appCoordinator = self
+        mainTabBarController.viewModel = mainTabBarViewModel
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.present(mainTabBarController, animated: true)
     }
 }

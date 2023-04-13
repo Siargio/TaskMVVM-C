@@ -8,6 +8,7 @@ final class RegisterViewController: UIViewController {
     let nameValidType: String.ValidTypes = .name
     let emailValueType: String.ValidTypes = .email
     let passwordValueType: String.ValidTypes = .password
+    var tapGestureRecognizer: UITapGestureRecognizer?
 
     // MARK: - LifeCycle
     
@@ -19,6 +20,7 @@ final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         creatingActionButton()
+        tapGuest()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +34,16 @@ final class RegisterViewController: UIViewController {
     }
 
     // MARK: - Setups
-    
+
+    func tapGuest() {
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        customView.addGestureRecognizer(tapGestureRecognizer!)
+    }
+
+    @objc func endEditing() {
+        self.view.endEditing(true)
+    }
+
     private func creatingActionButton() {
         customView.singInButton.addTarget(self, action: #selector(registrationUser), for: .touchUpInside)
         customView.logInButton.addTarget(self, action: #selector(goTOLoginScreen), for: .touchUpInside)

@@ -6,7 +6,8 @@ class LoginViewController: UIViewController {
 
     var viewModel : LoginViewModel?
     private let customView = LoginView()
-
+    var tapGestureRecognizer: UITapGestureRecognizer?
+    
     // MARK: - LifeCycle
 
     override func loadView() {
@@ -17,6 +18,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         creatingActionButton()
+        tapGuest()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +33,15 @@ class LoginViewController: UIViewController {
     
     // MARK: - Setups
 
+    func tapGuest() {
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        customView.addGestureRecognizer(tapGestureRecognizer!)
+    }
+
+    @objc func endEditing() {
+        self.view.endEditing(true)
+    }
+    
     private func creatingActionButton() {
         customView.loginButton.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
     }
