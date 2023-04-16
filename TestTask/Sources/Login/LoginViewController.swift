@@ -7,7 +7,7 @@ class LoginViewController: UIViewController {
     var viewModel : LoginViewModel?
     private let customView = LoginView()
     var tapGestureRecognizer: UITapGestureRecognizer?
-    
+
     // MARK: - LifeCycle
 
     override func loadView() {

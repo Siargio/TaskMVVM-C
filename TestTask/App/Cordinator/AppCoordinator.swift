@@ -47,7 +47,8 @@ class AppCoordinator: Coordinator {
         let mainTabBarViewModel = MainTabBarViewModel.init()
         mainTabBarViewModel.appCoordinator = self
         mainTabBarController.viewModel = mainTabBarViewModel
-        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.viewControllers.removeAll()
+        mainTabBarController.modalPresentationStyle = .fullScreen
         navigationController.present(mainTabBarController, animated: true)
     }
 }

@@ -35,7 +35,7 @@ final class MainTabBarViewController: UITabBarController {
 
         let personViewController = PersonViewController()
         personViewController.tabBarItem.image = R.Image.TabBar.person
-        personViewController.tabBarItem.selectedImage = R.Image.TabBar.messageSelect?.withRenderingMode(.alwaysOriginal)
+        personViewController.tabBarItem.selectedImage = R.Image.TabBar.personSelect?.withRenderingMode(.alwaysOriginal)
         let navControllerPerson = UINavigationController(rootViewController: personViewController)
 
         let controllers = [navControllerHouse,

@@ -21,7 +21,7 @@ final class HouseViewController: UIViewController {
         fetchLatest()
         fetchFlashScale()
         setupNavigationBar()
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
+        //tabBarController?.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -78,7 +78,7 @@ extension HouseViewController {
         navigationTitle()
         navigationImage()
         navigationController?.navigationBar.tintColor = .black
-        navigationItem.hidesBackButton = true
+        navigationController?.navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: R.Image.Home.leftBarButtonItem,
             style: .done, target: nil, action: nil)
