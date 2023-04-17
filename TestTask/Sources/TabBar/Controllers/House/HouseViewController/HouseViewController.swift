@@ -145,7 +145,6 @@ extension HouseViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
 
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch indexPath.section {

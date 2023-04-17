@@ -43,34 +43,4 @@ final class NetworkDataFetch {
             }
         }
     }
-
-    func fetchImageLatest(model: Latest, imageView: UIImageView) {
-        if let imageUrl = model.imageURL, let url = URL(string: imageUrl) {
-            let session = URLSession.shared
-
-            let task = session.dataTask(with: url) { data, response, error in
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imageView.image = image
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
-
-    func fetchImageFlashSale(model: FlashSale, imageView: UIImageView) {
-        if let imageUrl = model.imageURL, let url = URL(string: imageUrl) {
-            let session = URLSession.shared
-
-            let task = session.dataTask(with: url) { data, response, error in
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imageView.image = image
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
 }

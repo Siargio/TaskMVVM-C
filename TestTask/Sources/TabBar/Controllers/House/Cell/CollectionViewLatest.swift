@@ -113,7 +113,6 @@ final class CollectionViewLatest: UICollectionViewCell {
         categoriesLabel.text = model.category
         productLabel.text = model.name
         priceLabel.text = "$ \(model.price ?? 0)"
-
-        NetworkDataFetch.shared.fetchImageLatest(model: model, imageView: backgroundCellImage)
+        backgroundCellImage.loadFrom(URLAddress: model.imageURL ?? "")
     }
 }

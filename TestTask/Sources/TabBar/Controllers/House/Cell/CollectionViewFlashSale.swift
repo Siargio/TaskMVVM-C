@@ -160,7 +160,6 @@ final class CollectionViewFlashSale: UICollectionViewCell {
         productLabel.text = model.name
         priceLabel.text = "$ \(model.price ?? 0)"
         discount.text = "\(model.discount ?? 0)% off"
-
-        NetworkDataFetch.shared.fetchImageFlashSale(model: model, imageView: backgroundCellImage)
+        backgroundCellImage.loadFrom(URLAddress: model.imageURL ?? "")
     }
 }

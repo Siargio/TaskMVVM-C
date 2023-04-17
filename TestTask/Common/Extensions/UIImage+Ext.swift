@@ -18,3 +18,19 @@ extension UIImageView {
         self.layer.borderWidth = 1
     }
 }
+
+extension UIImageView {
+    func loadFrom(URLAddress: String) {
+        guard let url = URL(string: URLAddress) else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data,
+                  let image = UIImage(data: data) else { return }
+
+            DispatchQueue.main.async { [weak self] in
+                self?.image = image
+            }
+        }
+        .resume()
+    }
+}
