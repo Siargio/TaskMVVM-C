@@ -14,10 +14,6 @@ class AppCoordinator: Coordinator {
         goToRegisterPage()
     }
 
-    func startUser() {
-        startTabBarPage()
-    }
-
     func goToRegisterPage() {
         let registerViewController = RegisterViewController()
         let registerViewModel = RegisterViewModel.init()
@@ -32,14 +28,6 @@ class AppCoordinator: Coordinator {
         loginViewModel.appCoordinator = self
         loginViewController.viewModel = loginViewModel
         navigationController.pushViewController(loginViewController, animated: true)
-    }
-
-    func startTabBarPage() {
-        let mainTabBarController = MainTabBarViewController()
-        let mainTabBarViewModel = MainTabBarViewModel.init()
-        mainTabBarViewModel.appCoordinator = self
-        mainTabBarController.viewModel = mainTabBarViewModel
-        navigationController.pushViewController(mainTabBarController, animated: true)
     }
 
     func goToTabBarPage() {

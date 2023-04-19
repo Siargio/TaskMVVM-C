@@ -21,7 +21,6 @@ final class HouseViewController: UIViewController {
         fetchLatest()
         fetchFlashScale()
         setupNavigationBar()
-        //tabBarController?.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -36,7 +35,6 @@ final class HouseViewController: UIViewController {
     }
 
     func fetchLatest() {
-
         let url = R.Text.Url.urlLatest
 
         NetworkDataFetch.shared.fetchAlbum(urlString: url) { modelLatest, error in
@@ -53,7 +51,6 @@ final class HouseViewController: UIViewController {
     }
 
     func fetchFlashScale() {
-
         let url = R.Text.Url.urlFlashSale
 
         NetworkDataFetch.shared.fetchFlashScale(urlString: url) { modelFlashSale, error in

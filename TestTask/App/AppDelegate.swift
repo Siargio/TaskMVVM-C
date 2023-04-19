@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func check() {
         if UserDefaults.standard.value(forKey: R.Text.userDefaultsKey) != nil {
             window = UIWindow(frame: UIScreen.main.bounds)
-            let navigationCon = UINavigationController.init()
-            appCoordinator = AppCoordinator(navCon: navigationCon)
-            appCoordinator?.startUser()
-            window?.rootViewController = navigationCon
+            let tabBar = MainTabBarViewController()
+            window?.rootViewController = tabBar
             window?.makeKeyAndVisible()
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
